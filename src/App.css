@@ -12,3 +12,13 @@
     justify-content: center;
     padding: 2px;
 }
+
+.logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+    font: bold;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}

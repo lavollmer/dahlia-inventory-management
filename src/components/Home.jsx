@@ -7,8 +7,8 @@ const Home = () => {
         <>
             <div>
                 <div className='navigation-bar'>
-                    <div>
-                        LOGO
+                    <div className='logo'>
+                        Dahlia Management System
                     </div>
                     <div>
                         <Navigation />
