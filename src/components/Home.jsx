@@ -1,6 +1,7 @@
 import React from 'react'
 import "../App.css"
 import Navigation from "./Navigation"
+import DahliaForm from "./DahliaForm"
 
 const Home = () => {
     return (
@@ -16,6 +17,9 @@ const Home = () => {
                 </div>
                 <div>
                     INSTRUCTIONS
+                </div>
+                <div>
+                    <DahliaForm />
                 </div>
             </div>
         </>
