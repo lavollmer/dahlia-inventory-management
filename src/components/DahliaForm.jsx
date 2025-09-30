@@ -2,15 +2,34 @@ import { useState } from 'react'
 import "../App.css"
 
 function DahliaForm() {
+  // useState for date input
+  const [formData, setFormData] = useState ({
+    name: '',
+    color: '',
+    container_id: '',
+    storage: '',
+    purchase_source: '',
+    purchase_year: '',
+    number_of_tubers: '',
+    condition: '',
+  });
+
+  const handleChange = (e) => {
+
+  }
+
+  const handleSubmit = (e) => {
+    
+  }
 
   return (
     <>
     <div className='dahlia-form'>
       <h1>Dahlia Form</h1>
-      <form className='dahlia-form-details'>
+      <form className='dahlia-form-details' onSubmit={handleSubmit}>
         <label>
           Dahlia Variety Name:
-          <input></input>
+          <input type="text" name="name" value={formData.name} onSubmit={handleChange}/>
         </label>
         <label>
           Color:

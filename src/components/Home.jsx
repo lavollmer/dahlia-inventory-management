@@ -16,9 +16,6 @@ const Home = () => {
                     </div>
                 </div>
                 <div>
-                    INSTRUCTIONS
-                </div>
-                <div>
                     <DahliaForm />
                 </div>
             </div>
