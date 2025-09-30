@@ -27,8 +27,9 @@ function DahliaForm() {
     try {
       const res = await axios.post('http://localhost:5000/inventory', formData);
       console.log('Item added:', res.data);
-    } catch {
+    } catch (err) {
       console.error(err);
+      alert('Error!');
     }
 
   }
@@ -40,35 +41,35 @@ function DahliaForm() {
         <form className='dahlia-form-details' onSubmit={handleSubmit}>
           <label>
             Dahlia Variety Name:
-            <input type="text" name="name" value={formData.name} onSubmit={handleChange} />
+            <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} />
           </label>
           <label>
             Color:
-            <input type="text" name="color" value={formData.color} onSubmit={handleChange} />
+            <input type="text" name="color" value={formData.color} onChange={handleChange} />
           </label>
           <label>
             Container ID:
-            <input type="text" name="container_id" value={formData.container_id} onSubmit={handleChange} />
+            <input type="text" name="container_id" value={formData.container_id} onChange={handleChange} />
           </label>
           <label>
             Storage Location:
-            <input type="text" name="storage" value={formData.storage} onSubmit={handleChange} />
+            <input type="text" name="storage" value={formData.storage} onChange={handleChange} />
           </label>
           <label>
             Purchase Source:
-            <input type="text" name="purchase_source" value={formData.purchase_source} onSubmit={handleChange} />
+            <input type="text" name="purchase_source" value={formData.purchase_source} onChange={handleChange} />
           </label>
           <label>
             Purchase Year:
-            <input type="text" name="purchase_year" value={formData.purchase_year} onSubmit={handleChange} />
+            <input type="text" name="purchase_year" value={formData.purchase_year} onChange={handleChange} />
           </label>
           <label>
             Number of Tubers:
-            <input type="text" name="number_of_tubers" value={formData.number_of_tubers} onSubmit={handleChange} />
+            <input type="text" name="number_of_tubers" value={formData.number_of_tubers} onChange={handleChange} />
           </label>
           <label>
             Condition:
-            <input type="text" name="condition" value={formData.condition} onSubmit={handleChange} />
+            <input type="text" name="condition" value={formData.condition} onChange={handleChange} />
           </label>
           <button type="submit">
            Add Item
