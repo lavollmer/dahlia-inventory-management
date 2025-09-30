@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import "../App.css"
 
 function DahliaForm() {
 
   return (
     <>
-      <form>
+    <div className='dahlia-form'>
+      <h1>Dahlia Form</h1>
+      <form className='dahlia-form-details'>
         <label>
           Dahlia Variety Name:
           <input></input>
@@ -38,6 +41,7 @@ function DahliaForm() {
           <input></input>
         </label>
       </form>
+      </div>
     </>
   )
 }
