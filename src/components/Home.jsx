@@ -1,11 +1,12 @@
 import React from 'react'
+import "../App.css"
 import Navigation from "./Navigation"
 
 const Home = () => {
     return (
         <>
             <div>
-                <div>
+                <div className='navigation-bar'>
                     <div>
                         LOGO
                     </div>
