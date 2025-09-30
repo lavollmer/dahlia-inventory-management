@@ -15,7 +15,7 @@ const Home = () => {
                     </div>
                 </div>
                 <div>
-                    Dahlia Inventory Management
+                    INSTRUCTIONS
                 </div>
             </div>
         </>

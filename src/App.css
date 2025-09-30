@@ -9,8 +9,14 @@
 .navigation {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    padding: 2px;
+    justify-content: space-around;
+    align-items: baseline;
+    width: 100%;
+    padding: 10px;
+    font: bold;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
 }
 
 .logo {
