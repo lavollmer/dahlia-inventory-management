@@ -7,23 +7,33 @@ const InventoryItemSchema = new mongoose.Schema({
         required: true,
         trim: true,
     },
-    quantitiy: {
+    color: {
+        type: String,
+        required: true,
+    },
+    container_id: {
         type: Number,
         required: true,
-        min: 0,
     },
-    price: {
-        type: Number,
-        required: false,
-        min: 0,
-    },
-    category: {
+    storage: {
         type: String,
         default: 'Uncategorized',
     },
-    dateAdded: {
+    purchase_source: {
+        type: String,
+        required: false,
+    },
+    purchase_year: {
         type: Date,
         default: Date.now,
+    },
+    numbers_of_tubers: {
+        type: Number,
+        required: true,
+    },
+    condition: {
+        type: String,
+        required: false,
     }
 })
 

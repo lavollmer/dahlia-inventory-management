@@ -4,19 +4,23 @@ const InventoryItem = require('../models/InventoryItem')
 
 router.post('/', async (req, res) => {
     try {
-        const { name, quantity, price, category } = req.body;
+        const { name, color, container_id, storage, purchase_source, purchase_year, number_of_tubers, condition } = req.body;
         const newItem = new InventoryItem({
             name,
-            quantity,
-            price,
-            category,
+            color,
+            container_id,
+            storage,
+            purchase_source,
+            purchase_year,
+            number_of_tubers,
+            condition,
         });
 
         const savedItem = await newItem.save()
         res.status(201).json(savedItem);
-    } catch(error) {
+    } catch (error) {
         console.error('Error')
-        res.status(500).json({error: 'Failed to save item'});
+        res.status(500).json({ error: 'Failed to save item' });
     }
 });
 
