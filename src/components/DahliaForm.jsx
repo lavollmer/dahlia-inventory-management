@@ -19,7 +19,7 @@ function DahliaForm() {
   }
 
   const handleSubmit = (e) => {
-    
+
   }
 
   return (
@@ -33,31 +33,31 @@ function DahliaForm() {
         </label>
         <label>
           Color:
-          <input></input>
+          <input type="text" name="color" value={formData.color} onSubmit={handleChange}/>
         </label>
         <label>
           Container ID:
-          <input></input>
+          <input type="text" name="container_id" value={formData.container_id} onSubmit={handleChange}/>
         </label>
         <label>
           Storage Location:
-          <input></input>
+          <input type="text" name="storage" value={formData.storage} onSubmit={handleChange}/>
         </label>
         <label>
           Purchase Source:
-          <input></input>
+          <input type="text" name="purchase_source" value={formData.purchase_source} onSubmit={handleChange}/>
         </label>
         <label>
           Purchase Year:
-          <input></input>
+          <input type="text" name="purchase_year" value={formData.purchase_year} onSubmit={handleChange}/>
         </label>
         <label>
           Number of Tubers:
-          <input></input>
+          <input type="text" name="number_of_tubers" value={formData.number_of_tubers} onSubmit={handleChange}/>
         </label>
         <label>
           Condition:
-          <input></input>
+          <input type="text" name="condition" value={formData.condition} onSubmit={handleChange}/>
         </label>
       </form>
       </div>
