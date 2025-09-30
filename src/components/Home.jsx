@@ -5,7 +5,7 @@ import Navigation from "./Navigation"
 const Home = () => {
     return (
         <>
-            <div>
+            <div className='home'>
                 <div className='navigation-bar'>
                     <div className='logo'>
                         Dahlia Management System
