@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const InventoryItem = require('../models/InventoryItem')
 
+// POST route
 router.post('/', async (req, res) => {
     try {
         const { name, color, container_id, storage, purchase_source, purchase_year, number_of_tubers, condition } = req.body;

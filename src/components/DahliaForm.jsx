@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import axios from 'axios';
 import "../App.css"
 
 function DahliaForm() {
@@ -19,10 +20,16 @@ function DahliaForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     // preventing page refresh
     e.preventDefault();
     // need to set up backend axios to submit data to database
+    try {
+      const res = await axios.post('http://localhost:5000/inventory', formData);
+      console.log('Item added:', res.data);
+    } catch {
+      console.error(err);
+    }
 
   }
 
@@ -64,7 +71,7 @@ function DahliaForm() {
             <input type="text" name="condition" value={formData.condition} onSubmit={handleChange} />
           </label>
           <button type="submit">
-           Submit
+           Add Item
           </button>
         </form>
       </div>
