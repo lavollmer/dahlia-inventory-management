@@ -11,7 +11,6 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <h1>Hello</h1>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/database" element={<Database />} />
