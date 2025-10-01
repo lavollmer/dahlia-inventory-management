@@ -90,6 +90,13 @@ td {
     border: 1px solid;
 }
 
+.title-instructions {
+    display: flex;
+     font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font: 700;
+}
+
 .how-to-use {
     display: flex;
     flex-direction: column;
