@@ -7,7 +7,7 @@ const Database = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/dahliainventorymanagement')
+    axios.get('http://localhost:5000/inventory')
       .then(response => {
         setData(response.data);
         setLoading(false);
@@ -26,7 +26,9 @@ const Database = () => {
         <Navigation />
       </div>
       <div>
-        <h1>Dahlia Inventory Management Database</h1>
+        <h2>Dahlia Inventory Management Database</h2>
+      </div>
+      <div>
         <ul>
           {data.map(item => (
             <li key={item.id}>
@@ -39,4 +41,4 @@ const Database = () => {
   )
 }
 
-export default Database
+export default Database;

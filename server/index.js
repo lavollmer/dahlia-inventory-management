@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// Routes
+// Mounted the Routes
 const inventoryRoutes = require('./routes/inventory')
 app.use('/inventory', inventoryRoutes);
 
@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
     res.send('Hello!')
 });
 
-// Start server
+// Listening on a PORT
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
 });
