@@ -1,6 +1,5 @@
 import {useState} from 'react'
 import "../App.css"
-import Navigation from "./Navigation"
 import DahliaForm from "./DahliaForm"
 import Database from './Database'
 import Footer from "./Footer"

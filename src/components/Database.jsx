@@ -1,4 +1,4 @@
-import Navigation from "./Navigation";
+import Header from './Header'
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -50,7 +50,7 @@ const Database = ({setFormData}) => {
   return (
     <div>
       <div>
-        <Navigation />
+        <Header />
       </div>
       <div className="table">
         <table>

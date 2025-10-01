@@ -1,13 +1,13 @@
 import FAQList from "./FAQList"
 import Footer from "./Footer"
-import Navigation from "./Navigation"
+import Header from "./Header"
 import Questions from "./Questions"
 
 const FAQ = () => {
   return (
     <div>
       <div>
-        <Navigation />
+        <Header />
       </div>
       <div>
         <h1>Help & FAQ</h1>
