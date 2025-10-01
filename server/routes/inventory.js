@@ -2,6 +2,18 @@ const express = require('express');
 const router = express.Router();
 const InventoryItem = require('../models/InventoryItem')
 
+// GET route
+router.get('/', async (req, res) => {
+    try {
+        const inventory = await InventoryItem.find();
+        res.json(inventory);
+    } catch (err) {
+        console.error("Error fetching inventory:", err);
+        res.status(500). json({ error: "Server error"});
+    }
+});
+
+
 // POST route
 router.post('/', async (req, res) => {
     try {
