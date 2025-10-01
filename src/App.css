@@ -54,3 +54,27 @@
     justify-content: baseline;
     padding: 10px;
 }
+
+.table {
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font: 400;
+}
+
+table {
+    border: 2px solid;
+    font-size: small;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font: 400;
+}
+
+caption,
+th,
+td {
+    border: 1px solid;
+}

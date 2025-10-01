@@ -25,7 +25,7 @@ const Database = () => {
       <div>
         <Navigation />
       </div>
-      <div>
+      <div className="table">
         <table>
           <caption>Dahlia Inventory Management Database</caption>
           <thead>
@@ -43,17 +43,23 @@ const Database = () => {
           <tbody>
             {data.map(item => (
               <tr key={item.id}>
-                <td>{item.name}</td>
-                <td>{item.color}</td>
-                <td>{item.containerId}</td>
-                <td>{item.purchaseSource}</td>
-                <td>{item.purchaseYear}</td>
-                <td>{item.numberOfTubers}</td>
-                <td>{item.storage}</td>
-                <td>{item.condition}</td>
+                <td space="row">{item.name}</td>
+                <td space="row">{item.color}</td>
+                <td space="row">{item.containerId}</td>
+                <td space="row">{item.purchaseSource}</td>
+                <td space="row">{item.purchaseYear}</td>
+                <td space="row">{item.numberOfTubers}</td>
+                <td space="row">{item.storage}</td>
+                <td space="row">{item.condition}</td>
               </tr>
             ))}
           </tbody>
+          <tfoot>
+            <tr>
+              <th scope="row">Number of Varieties</th>
+              <th>5</th>
+            </tr>
+          </tfoot>
         </table>
       </div>
     </div>
