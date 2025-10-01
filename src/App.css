@@ -1,8 +1,24 @@
+/* --xanthous: #ffc759ff;
+--rose-pompadour: #ff7b9cff;
+--glaucous: #607196ff;
+--french-gray: #babfd1ff;
+--antiflash-white: #e8e9edff; */
+
 .home {
     display: flex;
     flex-direction: column;
     padding: 6px;
     margin: 0px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
 }
 
 .splash-page {
@@ -30,12 +46,14 @@
     text-decoration: none;
 }
 
-.navigation-bar {
+.header-bar {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    padding: 2px;
+    background-color: #e8e9edff;
+    padding: 10px;
+    border-radius: 1em;
 }
 
 .navigation {
@@ -57,8 +75,9 @@
     justify-content: center;
     text-align: center;
     font: bold;
-    font-size: large;
+    font-size:large;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    color: black;
 }
 
 .dahlia-form {

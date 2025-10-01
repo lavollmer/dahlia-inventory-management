@@ -20,7 +20,7 @@ const Home = () => {
 
     return (
         <>
-            <div className='home'>
+            <div>
                 <Header />
                 <div className='splash-page'>
                     <h1>Dahlia Flower Inventory Manager</h1>
