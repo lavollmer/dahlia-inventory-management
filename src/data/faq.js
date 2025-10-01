@@ -15,9 +15,6 @@ const faq = [
         answer: "On the Database page, use the search bar at the top. You can search by either the dahlia's name or color. The table will automatically filter to show matching results as you type."
     },
     {
-
-    },
-    {
         id:4,
         question: "Can I organize my dahlias by inventory location or garden location?",
         answer: "Yes! Each dahlia entry includes a location field where you can specify garden areas, rows, or sections. This helps you track where each variety is planted and organize your garden layout."

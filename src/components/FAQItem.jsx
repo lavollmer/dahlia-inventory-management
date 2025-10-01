@@ -1,7 +1,8 @@
 import FAQ from "../data/faq"
 import {useState} from 'react';
-import { FaArrowCircleDown } from "react-icons/fa";
-import { FaArrowCircleUp } from "react-icons/fa";
+import { CiCirclePlus } from "react-icons/ci";
+import { CiCircleMinus } from "react-icons/ci";
+
 
 const FAQItem = ({question, answer}) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +16,7 @@ const FAQItem = ({question, answer}) => {
         <div className="faq-item">
             <button onClick={toggleOpen} className="faq-question">
                 {question}
-                <span>{isOpen ? <FaArrowCircleDown /> : <FaArrowCircleUp />}</span>
+                <span>{isOpen ? <CiCircleMinus /> : <CiCirclePlus />}</span>
             </button>
             {isOpen && <div className="faq-answer">{answer}</div>}
         </div>

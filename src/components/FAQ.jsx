@@ -1,5 +1,7 @@
 import FAQList from "./FAQList"
+import Footer from "./Footer"
 import Navigation from "./Navigation"
+import Questions from "./Questions"
 
 const FAQ = () => {
   return (
@@ -13,6 +15,10 @@ const FAQ = () => {
       <div>
         <FAQList />
       </div>
+      <div>
+        <Questions />
+      </div>
+      <Footer/>
     </div>
   )
 }
