@@ -8,6 +8,9 @@ const FAQ = () => {
         <Navigation />
       </div>
       <div>
+        <h1>Frequently Asked Questions</h1>
+      </div>
+      <div>
         <FAQList />
       </div>
     </div>

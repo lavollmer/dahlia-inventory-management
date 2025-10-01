@@ -10,3 +10,5 @@ const faq = [
         answer: "Because I wanted an easier way to store dahlias."
     },
 ]
+
+export default faq
