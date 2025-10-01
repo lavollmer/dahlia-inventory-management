@@ -26,16 +26,35 @@ const Database = () => {
         <Navigation />
       </div>
       <div>
-        <h2>Dahlia Inventory Management Database</h2>
-      </div>
-      <div>
-        <ul>
-          {data.map(item => (
-            <li key={item.id}>
+        <table>
+          <caption>Dahlia Inventory Management Database</caption>
+          <thead>
+            <tr>
+              <th scope='col'>Dahlia Variety Name</th>
+              <th scope='col'>Color</th>
+              <th scope='col'>Container ID</th>
+              <th scope='col'>Storage</th>
+              <th scope='col'>Purchase Source</th>
+              <th scope='col'>Purchase Year</th>
+              <th scope='col'>Number of Tubers</th>
+              <th scope='col'>Storage</th>
+              <th scope='col'>Condition</th>
+            </tr>
+            {/* {data.map(item => (
+            <tr key={item.id}>
               {item.name}
-            </li>
+              {item.color}
+              {item.container_id}
+              {item.storage}
+              {item.purchase_source}
+              {item.purchase_year}
+              {item.number_of_tubers}
+              {item.storage}
+              {item.condition}
+            </tr> */}
           ))}
-        </ul>
+          </thead>
+        </table>
       </div>
     </div>
   )
