@@ -15,6 +15,9 @@ function DahliaForm() {
     condition: '',
   });
 
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingId, setEditingId] = useState(null);
+
   const handleChange = (e) => {
     // we are updating state by copying the old data, and setting it to the new value input by end user
     setFormData({ ...formData, [e.target.name]: e.target.value })
@@ -23,6 +26,29 @@ function DahliaForm() {
   const handleSubmit = async (e) => {
     // preventing page refresh
     e.preventDefault();
+
+    if (isEditing) {
+      await axios.put(`http://localhost:5000/inventory/${editingId}`, formData);
+      alert('Item updated successfully!');
+      setIsEditing(false);
+      setEditingId(null);
+    } else {
+      await axios.post('http://localhost:5000/inventory', formData);
+      alert('New item added!');
+    }
+
+    setFormData({
+      name: '',
+      color: '',
+      container_id: '',
+      storage: '',
+      purchase_source: '',
+      purchase_year: '',
+      number_of_tubers: '',
+      condition: '',
+    });
+    fetchData();
+
     // need to set up backend axios to submit data to database
     try {
       const res = await axios.post('http://localhost:5000/inventory', formData);

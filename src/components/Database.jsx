@@ -22,7 +22,9 @@ const Database = () => {
 
   
   const handleEdit = async (item) => {
+    // upload item data
     setFormData(item);
+    // editing true
     setIsEditing(true);
     setEditingId(item._id);
   }

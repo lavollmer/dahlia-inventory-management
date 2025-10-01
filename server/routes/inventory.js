@@ -9,34 +9,47 @@ router.get('/', async (req, res) => {
         res.json(inventory);
     } catch (err) {
         console.error("Error fetching inventory:", err);
-        res.status(500). json({ error: "Server error"});
+        res.status(500).json({ error: "Server error" });
     }
 });
 
 // DELETE route
 router.delete('/:id', async (req, res) => {
-    try{
+    try {
         const deletedItem = await InventoryItem.findByIdAndDelete(req.params.id);
         if (!deletedItem) {
-            return res.status(404).json({message: 'Item not found'})
+            return res.status(404).json({ message: 'Item not found' })
         }
-    } catch (err){
+    } catch (err) {
         console.error(err)
-        res.status(500).json({message: 'Server error'})
+        res.status(500).json({ message: 'Server error' })
     }
 })
 
+// EDIT route
+router.put('/', async (req, res) => {
+    try {
+        const updatedItem = await InventoryItem.findByIdAndUpdate(
+            req.params.id,
+            req.body,
+            { new: true } // return updated doc
+        )
+        res.json(updatedItem);
+    } catch (err) {
+        res.status(400).json({ error: err.message })
+    }
+});
 
 // POST route
 router.post('/', async (req, res) => {
     try {
         const { name, color, container_id, storage, purchase_source, purchase_year, number_of_tubers, condition } = req.body;
-        
+
         // validation to avoid empty stuff
-        if (!name || !color || !container_id){
-            return res.status(400).json({error: 'Name, color or quantity are required.'})
+        if (!name || !color || !container_id) {
+            return res.status(400).json({ error: 'Name, color or quantity are required.' })
         }
-        
+
         const newItem = new InventoryItem({
             name,
             color,
