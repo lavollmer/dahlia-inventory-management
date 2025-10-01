@@ -89,3 +89,31 @@ th,
 td {
     border: 1px solid;
 }
+
+.how-to-use {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: baseline;
+    padding: 10px;
+}
+
+.title-use {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: center;
+    padding: 2px;
+    font-size: small;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font: 500;
+}
+
+.instructions {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-size: small;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font: 200;
+}

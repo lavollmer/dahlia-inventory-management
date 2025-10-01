@@ -1,11 +1,10 @@
 import { useState } from 'react'
 import "../App.css"
-import DahliaForm from "./DahliaForm"
-import Database from './Database'
 import Footer from "./Footer"
 import Header from './Header'
 import { FaPlus } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom'
+import { TbCircleNumber1Filled } from "react-icons/tb";
 
 const Home = () => {
     const navigate = useNavigate();
@@ -27,15 +26,21 @@ const Home = () => {
                     <h1>Quick Add Dahlia</h1>
                     <p>Add a new dahlia to your collection right from the home page.</p>
                     <button onClick={handleButtonClick}>
-                        Add a Dahlia
                         <FaPlus />
+                        Add a Dahlia
                     </button>
                 </div>
                 <div>
-                    <DahliaForm formData={formData} setFormData={setFormData} />
-                </div>
-                <div>
-                    <Database setFormData={setFormData} />
+                    <h1>How to Use</h1>
+                    <div className='how-to-use'>
+                        <div className='title-use'>
+                            <TbCircleNumber1Filled />
+                            <h2>Add Your Dahlias</h2>
+                        </div>
+                        <div className='instructions'>
+                            <h3>Click "Add New Dahlia" above or in the Database section. Fill in the dahlia's name, color, type, quantity, and location. You can also add bloom size and notes for detailed tracking.</h3>
+                        </div>
+                    </div>
                 </div>
                 <div>
                     <Footer />

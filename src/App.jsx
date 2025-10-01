@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from "./components/Home"
 import Database from "./components/Database"
 import FAQ from "./components/FAQ"
-import Add from "./components/DahliaForm"
+import Add from "./components/AddDahlia"
 
 function App() {
 
