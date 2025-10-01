@@ -54,12 +54,6 @@ const Database = () => {
               </tr>
             ))}
           </tbody>
-          <tfoot>
-            <tr>
-              <th scope="row">Number of Varieties</th>
-              <th>5</th>
-            </tr>
-          </tfoot>
         </table>
       </div>
     </div>

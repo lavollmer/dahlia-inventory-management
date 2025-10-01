@@ -13,6 +13,19 @@ router.get('/', async (req, res) => {
     }
 });
 
+// DELETE route
+router.delete('/', async (req, res) => {
+    try{
+        const deletedItem = await InventoryItem.findByIdAndDelete(req.params.id);
+        if (!deletedItem) {
+            return res.status(404).json({message: 'Item not found'})
+        }
+    } catch (err){
+        console.error(err)
+        res.status(500).json({message: 'Server error'})
+    }
+})
+
 
 // POST route
 router.post('/', async (req, res) => {

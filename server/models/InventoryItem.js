@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 //Schema
 const InventoryItemSchema = new mongoose.Schema({
-    name:{
+    name: {
         type: String,
         required: true,
         trim: true,
@@ -35,6 +35,6 @@ const InventoryItemSchema = new mongoose.Schema({
         type: String,
         required: false,
     }
-})
+}, { timestamps: true });
 
 module.exports = mongoose.model('InventoryItem', InventoryItemSchema)
