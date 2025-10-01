@@ -33,27 +33,27 @@ const Database = () => {
               <th scope='col'>Dahlia Variety Name</th>
               <th scope='col'>Color</th>
               <th scope='col'>Container ID</th>
-              <th scope='col'>Storage</th>
               <th scope='col'>Purchase Source</th>
               <th scope='col'>Purchase Year</th>
               <th scope='col'>Number of Tubers</th>
               <th scope='col'>Storage</th>
               <th scope='col'>Condition</th>
             </tr>
-            {/* {data.map(item => (
-            <tr key={item.id}>
-              {item.name}
-              {item.color}
-              {item.container_id}
-              {item.storage}
-              {item.purchase_source}
-              {item.purchase_year}
-              {item.number_of_tubers}
-              {item.storage}
-              {item.condition}
-            </tr> */}
-          ))}
           </thead>
+          <tbody>
+            {data.map(item => (
+              <tr key={item.id}>
+                <td>{item.name}</td>
+                <td>{item.color}</td>
+                <td>{item.containerId}</td>
+                <td>{item.purchaseSource}</td>
+                <td>{item.purchaseYear}</td>
+                <td>{item.numberOfTubers}</td>
+                <td>{item.storage}</td>
+                <td>{item.condition}</td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     </div>
