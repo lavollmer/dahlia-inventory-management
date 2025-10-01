@@ -35,7 +35,7 @@ body {
     color: var(--text-primary);
     padding: 10px;
     margin: 10px;
-    background-image: linear-gradient(to right, rgb(255, 152, 178) , rgb(155, 48, 255));
+    background-image: linear-gradient(to right, rgb(255, 120, 9) , rgb(255, 226, 98));
     border-radius: 1rem;
 }
 
@@ -258,4 +258,11 @@ h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
     color: var(--text-primary);
+}
+
+img {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
 }

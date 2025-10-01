@@ -9,6 +9,7 @@ import { TbCircleNumber2Filled } from "react-icons/tb";
 import { TbCircleNumber3Filled } from "react-icons/tb";
 import { LuDatabase } from "react-icons/lu";
 import { FaQuestionCircle } from "react-icons/fa";
+import Dahlias from "../assets/orangedahlias.jpg"
 
 const Home = () => {
     const navigate = useNavigate();
@@ -24,6 +25,7 @@ const Home = () => {
                 <div>
                     <Header />
                 </div>
+                <img src={Dahlias} alt="dahlia picture" />
                 <div className='splash-page'>
                     <h1>Dahlia Flower Inventory Manager</h1>
                     <p>Track, organize, and manage your dahlia collection with ease. Add new varieties, monitor quantities, and keep detailed records.</p>
