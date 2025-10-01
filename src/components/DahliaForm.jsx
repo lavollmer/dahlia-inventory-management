@@ -27,6 +27,17 @@ function DahliaForm() {
     try {
       const res = await axios.post('http://localhost:5000/inventory', formData);
       console.log('Item added:', res.data);
+      window.alert("Item added!")
+      setFormData({
+        name: '',
+        color: '',
+        container_id: '',
+        storage: '',
+        purchase_source: '',
+        purchase_year: '',
+        number_of_tubers: '',
+        condition: '',
+      });
     } catch (err) {
       console.error(err);
       alert('Error!');
@@ -72,7 +83,7 @@ function DahliaForm() {
             <input type="text" name="condition" value={formData.condition} onChange={handleChange} />
           </label>
           <button type="submit">
-           Add Item
+            Add Item
           </button>
         </form>
       </div>
