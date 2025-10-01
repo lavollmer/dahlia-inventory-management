@@ -28,7 +28,7 @@ const Home = () => {
                     <h1>Quick Add Dahlia</h1>
                     <p>Add a new dahlia to your collection right from the home page.</p>
                     <button onClick={handleButtonClick}>
-                        <FaPlus />
+                        <FaPlus size="1em" />
                         Add a Dahlia
                     </button>
                 </div>
