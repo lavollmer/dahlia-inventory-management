@@ -15,18 +15,20 @@ const Header = () => {
   return (
     <>
       <div className='header-bar'>
-        <div className='logo'>
-          <LuFlower2 />
-          Dahlia Petal Ledger
+        <div className="header">
+          <div className='logo'>
+            <LuFlower2 />
+            Dahlia Petal Ledger
+          </div>
+          <div>
+            <button onClick={toggleOpen}>
+              <span>{isOpen ? <IoClose /> : <RxHamburgerMenu />}</span>
+            </button>
+          </div>
         </div>
-        <div>
-          <button onClick={toggleOpen}>
-            <span>{isOpen ? <IoClose /> : <RxHamburgerMenu />}</span>
-          </button>
+        <div className="dropdown">
+          {isOpen && <div className="faq-answer"><Navigation /></div>}
         </div>
-      </div>
-      <div className="dropdown">
-        {isOpen && <div className="faq-answer"><Navigation /></div>}
       </div>
     </>
   )
