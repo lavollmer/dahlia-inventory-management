@@ -4,6 +4,7 @@ const Footer = () => {
   return (
      <div className='footer'>
       <p>Created by <span>Laura Dev</span> · 2025 &nbsp;|&nbsp; 
+      <button>
         <a
           href="https://github.com/lavollmer"
           target="_blank"
@@ -11,6 +12,7 @@ const Footer = () => {
         >
           View on GitHub
         </a>
+        </button>
       </p>
     </div>
   )

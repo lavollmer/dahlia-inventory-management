@@ -1,14 +1,51 @@
-/* --xanthous: #ffc759ff;
---rose-pompadour: #ff7b9cff;
---glaucous: #607196ff;
---french-gray: #babfd1ff;
---antiflash-white: #e8e9edff; */
+:root {
+    /* Primary Colors (Dahlia hues) */
+    --primary: #B0356F;
+    /* Deep Dahlia Pink */
+    --primary-light: #D66A96;
+    /* Blush Pink */
+    --primary-dark: #7A1D4E;
+    /* Rich Magenta */
+
+    /* Secondary Colors (Foliage + Accents) */
+    --secondary: #4C764D;
+    /* Botanical Green */
+    --secondary-light: #78A778;
+    /* Soft Leaf Green */
+    --accent: #F2C94C;
+    /* Golden Yellow (for highlights, buttons) */
+
+    /* Neutrals (Background, Cards, Text) */
+    --background: #FAF9F8;
+    /* Light Cream */
+    --surface: #FFFFFF;
+    /* Card/Panel Backgrounds */
+    --text-primary: #2E2E2E;
+    /* Main Text */
+    --text-secondary: #555555;
+    /* Subtext, Labels */
+    --border: #E0E0E0;
+    /* Divider lines, borders */
+
+    /* Alerts & Status (optional) */
+    --success: #6BB187;
+    --warning: #F29D35;
+    --error: #D9534F;
+}
+
+body {
+    background-color: var(--background);
+    margin: 0;
+    padding: 0;
+}
 
 .home {
     display: flex;
     flex-direction: column;
     padding: 6px;
     margin: 0px;
+    background-color: var(--background);
+    color: var(--text-primary);
 }
 
 .footer {
@@ -30,6 +67,8 @@
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
+    color: var(--text-primary);
+    padding: 4px;
 }
 
 .quick-add-dahlia {
@@ -44,10 +83,12 @@
     font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
+    color: var(--text-primary);
 }
 
 .header-bar {
     background-color: #e8e9edff;
+    color: var(--text-primary);
 }
 
 .header {
@@ -85,7 +126,7 @@
     font: bold;
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: black;
+    color: var(--text-secondary);
 }
 
 .dahlia-form {
@@ -181,12 +222,20 @@ button {
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    padding: 4px;
-    border-radius: 0.3rem;
+    padding: 0.5rem;
     font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font: 400;
     margin: 2px;
+    background-color: var(--primary-light);
+    color: white;
+    cursor: pointer;
+    border-radius: 6px;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.button:hover {
+    background-color: var(--primary-dark);
 }
 
 .FAQ-page {
@@ -221,4 +270,13 @@ p {
     font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
+    font-weight: 300;
+    color: var(--text-secondary);
+}
+
+h1 {
+    font-size: x-large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+    color: var(--text-primary);
 }

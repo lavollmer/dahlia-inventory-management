@@ -20,8 +20,10 @@ const Home = () => {
 
     return (
         <>
-            <div>
-                <Header />
+            <div className='home'>
+                <div>
+                    <Header />
+                </div>
                 <div className='splash-page'>
                     <h1>Dahlia Flower Inventory Manager</h1>
                     <p>Track, organize, and manage your dahlia collection with ease. Add new varieties, monitor quantities, and keep detailed records.</p>
@@ -62,7 +64,7 @@ const Home = () => {
                 </div>
                 <div className='how-to-use-box'>
                     <div className='title-use'>
-                        <LuDatabase size="2em"  />
+                        <LuDatabase size="2em" />
                         <h1> View Database</h1>
                     </div>
                     <p>Browse and manage your dahlia collection</p>
