@@ -29,7 +29,7 @@ const InventoryItemSchema = new mongoose.Schema({
     },
     numbers_of_tubers: {
         type: Number,
-        required: true,
+        required: false,
     },
     condition: {
         type: String,
