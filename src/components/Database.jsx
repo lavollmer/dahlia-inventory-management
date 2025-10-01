@@ -1,7 +1,6 @@
 import Navigation from "./Navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import InventoryItem from "../../server/models/InventoryItem";
 
 const Database = () => {
   const [data, setData] = useState([]);
@@ -11,9 +10,11 @@ const Database = () => {
     axios.get('http://localhost:5000/api/dahliainventorymanagement')
       .then(response => {
         setData(response.data);
+        setLoading(false);
       })
       .catch(error => {
         console.error("Error fetching data: ", error)
+        setLoading(false)
       });
   }, []);
 
@@ -25,11 +26,11 @@ const Database = () => {
         <Navigation />
       </div>
       <div>
-        <h1>Dahlia Inventory Management</h1>
+        <h1>Dahlia Inventory Management Database</h1>
         <ul>
-          {InventoryItem.map(InventoryItem => (
-            <li key={InventoryItem.id}>
-              {InventoryItem.name}
+          {data.map(item => (
+            <li key={item.id}>
+              {item.name}
             </li>
           ))}
         </ul>
