@@ -5,6 +5,17 @@
     margin: 0px;
 }
 
+.splash-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font: bold;
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+}
+
 .navigation-bar {
     display: flex;
     flex-direction: row;
