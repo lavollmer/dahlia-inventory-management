@@ -35,7 +35,7 @@ body {
     color: var(--text-primary);
     padding: 10px;
     margin: 10px;
-    background-image: linear-gradient(to right, rgb(255, 110, 199) , rgb(172, 191, 252));
+    background-image: linear-gradient(to right, rgb(255, 152, 178) , rgb(155, 48, 255));
     border-radius: 1rem;
 }
 
