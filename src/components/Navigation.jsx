@@ -4,11 +4,17 @@ import { Link } from 'react-router-dom';
 const Navigation = () => {
   return (
     <>
-      <nav className='navigation'>
-        <Link to="/">Home</Link>
-        <Link to="/database">Database</Link>
-        <Link to="/FAQ">FAQ</Link>
-      </nav>
+      <div className='navigation'>
+        <button>
+          <Link to="/" style={{ textDecoration: 'none' }}>Home</Link>
+        </button>
+        <button>
+          <Link to="/database" style={{ textDecoration: 'none' }}>Database</Link>
+        </button>
+        <button>
+          <Link to="/FAQ" style={{ textDecoration: 'none' }}>FAQ</Link>
+        </button>
+      </div>
     </>
   )
 }

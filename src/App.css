@@ -58,15 +58,18 @@
 
 .navigation {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+    flex-direction: column;
     align-items: baseline;
-    width: 100%;
-    padding: 10px;
-    font: bold;
-    font-size: large;
+    font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
+}
+
+.dropdown {
+    flex: display;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
 }
 
 .logo {
@@ -173,11 +176,12 @@ button {
     justify-content: space-between;
     align-items: center;
     text-align: center;
-    padding: 2px;
+    padding: 4px;
     border-radius: 0.3rem;
     font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font: 400;
+    margin: 2px;
 }
 
 .FAQ-page {
