@@ -24,7 +24,7 @@ const Home = () => {
                     <h1>Dahlia Flower Inventory Manager</h1>
                     <p>Track, organize, and manage your dahlia collection with ease. Add new varieties, monitor quantities, and keep detailed records.</p>
                 </div>
-                <div>
+                <div className='quick-add-dahlia'>
                     <h1>Quick Add Dahlia</h1>
                     <p>Add a new dahlia to your collection right from the home page.</p>
                     <button onClick={handleButtonClick}>
@@ -32,25 +32,25 @@ const Home = () => {
                         Add a Dahlia
                     </button>
                 </div>
-                <div>
-                    <h1 className='title-instructions'>How to Use</h1>
+                <div className='how-to-use-box'>
                     <div className='how-to-use'>
+                        <h1 className='title-instructions'>How to Use</h1>
                         <div className='title-use'>
-                            <TbCircleNumber1Filled size="2em"/>
+                            <TbCircleNumber1Filled size="2em" />
                             <h2>Add Your Dahlias</h2>
                         </div>
                         <div className='instructions'>
                             <h3>Click "Add New Dahlia" above or in the Database section. Fill in the dahlia's name, color, type, quantity, and location. You can also add bloom size and notes for detailed tracking.</h3>
                         </div>
                         <div className='title-use'>
-                            <TbCircleNumber2Filled size="2em"/>
+                            <TbCircleNumber2Filled size="2em" />
                             <h2>Browse Your Collection</h2>
                         </div>
                         <div className='instructions'>
                             <h3>Navigate to the Database page to view all your dahlias in an organized table. Use the search bar to quickly find specific varieties by name or color.</h3>
                         </div>
                         <div className='title-use'>
-                            <TbCircleNumber3Filled size="2em"/>
+                            <TbCircleNumber3Filled size="2em" />
                             <h2>Manage & Update</h2>
                         </div>
                         <div className='instructions'>
