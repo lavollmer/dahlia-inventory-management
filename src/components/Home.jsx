@@ -4,20 +4,14 @@ import Navigation from "./Navigation"
 import DahliaForm from "./DahliaForm"
 import Database from './Database'
 import Footer from "./Footer"
+import Header from './Header'
 
 const Home = () => {
     const [formData, setFormData] = useState(null);
     return (
         <>
             <div className='home'>
-                <div className='navigation-bar'>
-                    <div className='logo'>
-                        Dahlia Management System
-                    </div>
-                    <div>
-                        <Navigation />
-                    </div>
-                </div>
+                <Header />
                 <div>
                     <DahliaForm formData={formData} setFormData={setFormData} />
                 </div>
