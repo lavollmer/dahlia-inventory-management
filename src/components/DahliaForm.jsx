@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import axios from 'axios';
 import "../App.css"
 
@@ -17,6 +17,12 @@ function DahliaForm() {
 
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
+
+  useEffect(() => {
+    if (formData) {
+      setFormData(formData);
+    }
+  }, [formData]);
 
   const handleChange = (e) => {
     // we are updating state by copying the old data, and setting it to the new value input by end user
@@ -47,7 +53,6 @@ function DahliaForm() {
       number_of_tubers: '',
       condition: '',
     });
-    fetchData();
 
     // need to set up backend axios to submit data to database
     try {

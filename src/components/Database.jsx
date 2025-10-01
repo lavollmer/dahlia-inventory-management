@@ -2,7 +2,7 @@ import Navigation from "./Navigation";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-const Database = () => {
+const Database = ({setFormData}) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
@@ -65,7 +65,7 @@ const Database = () => {
           </thead>
           <tbody>
             {data.map(item => (
-              <tr key={item.id}>
+              <tr key={item._id}>
                 <td space="row">{item.name}</td>
                 <td space="row">{item.color}</td>
                 <td space="row">{item.containerId}</td>

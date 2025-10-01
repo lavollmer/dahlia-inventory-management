@@ -1,10 +1,12 @@
-import React from 'react'
+import {useState} from 'react'
 import "../App.css"
 import Navigation from "./Navigation"
 import DahliaForm from "./DahliaForm"
+import Database from './Database'
 import Footer from "./Footer"
 
 const Home = () => {
+    const [formData, setFormData] = useState(null);
     return (
         <>
             <div className='home'>
@@ -17,7 +19,10 @@ const Home = () => {
                     </div>
                 </div>
                 <div>
-                    <DahliaForm />
+                    <DahliaForm formData={formData} setFormData={setFormData} />
+                </div>
+                <div>
+                    <Database setFormData={setFormData} />
                 </div>
                 <div>
                     <Footer />
