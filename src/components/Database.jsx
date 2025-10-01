@@ -5,6 +5,8 @@ import axios from "axios";
 const Database = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
     axios.get('http://localhost:5000/inventory')
@@ -17,6 +19,13 @@ const Database = () => {
         setLoading(false)
       });
   }, []);
+
+  
+  const handleEdit = async (item) => {
+    setFormData(item);
+    setIsEditing(true);
+    setEditingId(item._id);
+  }
 
   const handleDelete = async (id) => {
     const confirmed = window.confirm("Are you sure you want to delete this item? It cannot be restored.")
@@ -63,6 +72,9 @@ const Database = () => {
                 <td space="row">{item.numberOfTubers}</td>
                 <td space="row">{item.storage}</td>
                 <td space="row">{item.condition}</td>
+                <td>
+                  <button onClick={() => handleEdit(item)}>Edit</button>
+                </td>
                 <td>
                   <button onClick={() => handleDelete(item._id)}>Delete</button>
                 </td>
