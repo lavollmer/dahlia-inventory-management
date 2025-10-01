@@ -21,12 +21,12 @@ const Database = () => {
   const handleDelete = async (id) => {
     const confirmed = window.confirm("Are you sure you want to delete this item? It cannot be restored.")
     if (!confirmed) return;
-    
+
     try {
       await axios.delete(`http://localhost:5000/inventory/${id}`);
       setData(prevData => prevData.filter(item => item._id !== id));
     } catch (err) {
-      console.error("Error deleting item:", error)
+      console.error("Error deleting item:", err)
     }
   }
 
