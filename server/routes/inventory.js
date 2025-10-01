@@ -14,7 +14,7 @@ router.get('/', async (req, res) => {
 });
 
 // DELETE route
-router.delete('/', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try{
         const deletedItem = await InventoryItem.findByIdAndDelete(req.params.id);
         if (!deletedItem) {
