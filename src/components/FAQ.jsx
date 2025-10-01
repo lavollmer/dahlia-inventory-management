@@ -1,8 +1,16 @@
-import React from 'react'
+import FAQList from "./FAQList"
+import Navigation from "./Navigation"
 
 const FAQ = () => {
   return (
-    <div>FAQ</div>
+    <div>
+      <div>
+        <Navigation />
+      </div>
+      <div>
+        <FAQList />
+      </div>
+    </div>
   )
 }
 
