@@ -5,21 +5,15 @@ import Questions from "./Questions"
 
 const FAQ = () => {
   return (
-    <div>
-      <div>
-        <Header />
-      </div>
-      <div>
+    <div className="FAQ-page">
+      <Header />
+      <div className="FAQ-page-body">
         <h1>Help & FAQ</h1>
         <h2>Find answers to common questions.</h2>
-      </div>
-      <div>
         <FAQList />
-      </div>
-      <div>
         <Questions />
       </div>
-      <Footer/>
+      <Footer />
     </div>
   )
 }

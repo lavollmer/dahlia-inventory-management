@@ -26,10 +26,10 @@ const Home = () => {
                 </div>
                 <div className='quick-add-dahlia'>
                     <h1>Quick Add Dahlia</h1>
-                    <p>Add a new dahlia to your collection right from the home page.</p>
+                    <p>Add a new dahlia flower to your collection right from the home page.</p>
                     <button onClick={handleButtonClick}>
                         <FaPlus size="1em" />
-                        Add a Dahlia
+                        Add New Dahlia
                     </button>
                 </div>
                 <div className='how-to-use-box'>

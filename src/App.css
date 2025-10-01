@@ -160,3 +160,31 @@ button {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font: 400;
 }
+
+.FAQ-page {
+    display: flex;
+    flex-direction: column;
+}
+
+.FAQ-page-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font: 200;
+}
+
+.questions {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 1rem;
+    font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-decoration: none;
+    padding: 10px;
+}
