@@ -5,10 +5,15 @@ import Database from './Database'
 import Footer from "./Footer"
 import Header from './Header'
 import { FaPlus } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom'
 
 const Home = () => {
+    const navigate = useNavigate();
     const [formData, setFormData] = useState(null);
 
+    const handleButtonClick = (e) => {
+        navigate('/adddahlia')
+    }
 
     return (
         <>
@@ -21,7 +26,7 @@ const Home = () => {
                 <div>
                     <h1>Quick Add Dahlia</h1>
                     <p>Add a new dahlia to your collection right from the home page.</p>
-                    <button>
+                    <button onClick={handleButtonClick}>
                         Add a Dahlia
                         <FaPlus />
                     </button>
