@@ -9,15 +9,7 @@ const Database = ({setFormData}) => {
   const [editingId, setEditingId] = useState(null);
 
   useEffect(() => {
-    axios.get('http://localhost:5000/inventory')
-      .then(response => {
-        setData(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error("Error fetching data: ", error)
-        setLoading(false)
-      });
+    fetchData();
   }, []);
 
   
@@ -27,6 +19,7 @@ const Database = ({setFormData}) => {
     // editing true
     setIsEditing(true);
     setEditingId(item._id);
+    await fetchData();
   }
 
   const handleDelete = async (id) => {
@@ -35,9 +28,20 @@ const Database = ({setFormData}) => {
 
     try {
       await axios.delete(`http://localhost:5000/inventory/${id}`);
-      setData(prevData => prevData.filter(item => item._id !== id));
+      await fetchData();
     } catch (err) {
       console.error("Error deleting item:", err)
+    }
+  }
+
+  const fetchData = async () => {
+    try {
+      const response = await axios.get('http://localhost:5000/inventory');
+      setData(response.data)
+    } catch (err) {
+      console.error("There was an error fetching data:", err)
+    } finally {
+      setLoading(false);
     }
   }
 
