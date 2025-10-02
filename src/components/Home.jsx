@@ -25,10 +25,11 @@ const Home = () => {
                 <div>
                     <Header />
                 </div>
-                <div className='background-image-splash'></div>
-                <div className='splash-page'>
-                    <h1>Dahlia Flower Inventory Manager</h1>
-                    <p>Track, organize, and manage your dahlia collection with ease. Add new varieties, monitor quantities, and keep detailed records.</p>
+                <div className='background-image-splash'>
+                    <div className='splash-page'>
+                        <h1>Dahlia Flower Inventory Manager</h1>
+                        <p>Track, organize, and manage your dahlia collection with ease. Add new varieties, monitor quantities, and keep detailed records.</p>
+                    </div>
                 </div>
                 <div className='quick-add-dahlia'>
                     <h1>Quick Add Dahlia</h1>
