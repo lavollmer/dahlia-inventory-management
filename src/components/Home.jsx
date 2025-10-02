@@ -25,7 +25,7 @@ const Home = () => {
                 <div>
                     <Header />
                 </div>
-                <img src={Dahlias} alt="dahlia picture" />
+                <div className='background-image-splash'></div>
                 <div className='splash-page'>
                     <h1>Dahlia Flower Inventory Manager</h1>
                     <p>Track, organize, and manage your dahlia collection with ease. Add new varieties, monitor quantities, and keep detailed records.</p>

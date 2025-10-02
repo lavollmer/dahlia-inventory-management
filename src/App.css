@@ -11,6 +11,7 @@ body {
     margin: 0px;
     background-color: var(--background);
     color: var(--text-primary);
+    
 }
 
 .footer {
@@ -18,7 +19,7 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    font-size: large;
+    font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
 }
@@ -35,15 +36,23 @@ body {
     color: var(--text-primary);
     padding: 10px;
     margin: 10px;
-    background-image: linear-gradient(to right, rgb(255, 120, 9) , rgb(255, 226, 98));
+    background-image: linear-gradient(to right, rgb(255, 120, 9), rgb(255, 226, 98));
     border-radius: 1rem;
 }
 
+.background-image-splash {
+        background-image: url('./assets/orangedahlias.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        width: 100wh;
+        height: 100vh;
+}
 
 .quick-add-dahlia {
     display: flex;
     flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
     padding: 10px;
     border: 1px solid black;
@@ -186,35 +195,36 @@ td {
 }
 
 button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.5rem;
 
-  padding: 0.75rem 1.25rem;
-  font-size: 1rem;
-  font-weight: 500;
-  font-family: 'Inter', 'Segoe UI', sans-serif;
+    padding: 0.75rem 1.25rem;
+    font-size: 1rem;
+    font-weight: 500;
+    font-family: 'Inter', 'Segoe UI', sans-serif;
 
-  background-color: #111827;
-  color: white;
+    background-color: #111827;
+    color: white;
 
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
 
-  transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
 
 button:hover {
-  background-color: #1f2937; /* Slightly lighter on hover */
-  transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    background-color: #1f2937;
+    /* Slightly lighter on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 button:active {
-  transform: translateY(0);
-  box-shadow: none;
+    transform: translateY(0);
+    box-shadow: none;
 }
 
 .FAQ-page {
@@ -243,6 +253,12 @@ button:active {
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
     padding: 10px;
+}
+
+.questions-faq {
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
 }
 
 p {

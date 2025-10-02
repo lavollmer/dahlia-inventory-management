@@ -11,7 +11,9 @@ const FAQ = () => {
         <h1>Help & FAQ</h1>
         <h2>Find answers to common questions.</h2>
         <FAQList />
-        <Questions />
+        <div className="questions-faq">
+          <Questions />
+        </div>
       </div>
       <Footer />
     </div>
