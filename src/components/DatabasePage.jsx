@@ -17,20 +17,25 @@ const DatabasePage = () => {
     return (
         <div>
             <Header />
-            <div className='database-features'>
+            <div className='database-page'>
                 <div>
-                    <h1>Quick Add Dahlia</h1>
-                    <button onClick={handleButtonClick}>
-                        <FaPlus size="1em" />
-                        Add New Dahlia
-                    </button>
+                    <h1>Dahlia Inventory Analytics</h1>
+                </div>
+                <div className='database-features'>
+                    <div>
+                        <h1>Quick Add Dahlia</h1>
+                        <button onClick={handleButtonClick}>
+                            <FaPlus size="1em" />
+                            Add New Dahlia
+                        </button>
+                    </div>
+                    <div>
+                        <h1>Search</h1>
+                    </div>
                 </div>
                 <div>
-                    <h1>Search</h1>
+                    <Database />
                 </div>
-            </div>
-            <div>
-                <Database />
             </div>
             <Footer />
         </div>

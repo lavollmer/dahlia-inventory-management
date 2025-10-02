@@ -403,3 +403,11 @@ img {
     width: 70vw;
     border-radius: 1.2em;
 }
+
+.database-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
