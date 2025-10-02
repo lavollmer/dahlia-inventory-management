@@ -33,32 +33,18 @@ function DahliaForm() {
     // preventing page refresh
     e.preventDefault();
 
-    if (isEditing) {
-      await axios.put(`http://localhost:5000/inventory/${editingId}`, formData);
-      alert('Item updated successfully!');
-      setIsEditing(false);
-      setEditingId(null);
-    } else {
-      await axios.post('http://localhost:5000/inventory', formData);
-      alert('New item added!');
-    }
-
-    setFormData({
-      name: '',
-      color: '',
-      container_id: '',
-      storage: '',
-      purchase_source: '',
-      purchase_year: '',
-      number_of_tubers: '',
-      condition: '',
-    });
-
-    // need to set up backend axios to submit data to database
     try {
-      const res = await axios.post('http://localhost:5000/inventory', formData);
-      console.log('Item added:', res.data);
-      window.alert("Item added!")
+      if (isEditing) {
+        await axios.put(`http://localhost:5000/inventory/${editingId}`, formData);
+        alert('Item updated successfully!');
+        setIsEditing(false);
+        setEditingId(null);
+      } else {
+        const res = await axios.post('http://localhost:5000/inventory', formData);
+        console.log('New item added:', res.data);
+        alert('New item added!');
+      }
+
       setFormData({
         name: '',
         color: '',
@@ -69,6 +55,7 @@ function DahliaForm() {
         number_of_tubers: '',
         condition: '',
       });
+
     } catch (err) {
       console.error(err);
       alert('Error!');

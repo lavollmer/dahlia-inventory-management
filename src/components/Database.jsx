@@ -25,16 +25,19 @@ const Database = ({ setFormData }) => {
   }
 
   const handleDelete = async (id) => {
-    const confirmed = window.confirm("Are you sure you want to delete this item? It cannot be restored.")
+    const confirmed = window.confirm("Are you sure you want to delete this item? It cannot be restored.");
     if (!confirmed) return;
 
     try {
       await axios.delete(`http://localhost:5000/inventory/${id}`);
+      alert('Item deleted successfully!');
       await fetchData();
     } catch (err) {
-      console.error("Error deleting item:", err)
+      console.error("Error deleting item:", err);
+      alert('Failed to delete item.');
     }
-  }
+  };
+
 
   const fetchData = async () => {
     try {
