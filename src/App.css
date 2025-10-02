@@ -7,8 +7,8 @@ body {
 .home {
     display: flex;
     flex-direction: column;
-    background-color: var(--background);
-    color: var(--text-primary);
+    background-color:white;
+    color: #1f2937;
 
 }
 
@@ -31,7 +31,7 @@ body {
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
-    color: var(--text-primary);
+    color: #1f2937;
     background-color: white;
     padding: 20px;
     margin: auto;
@@ -57,18 +57,18 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid #1f2937;;
     margin: 6px;
     border-radius: 1rem;
     font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
-    color: #111827;
+    color: #1f2937;
 }
 
 .header-bar {
     background-color: #e8e9edff;
-    color: #111827;
+    color: #1f2937;
 }
 
 .header {
@@ -87,7 +87,7 @@ body {
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
-    background-color: black;
+    background-color: #1f2937;
 }
 
 .navigation-link {
@@ -114,7 +114,7 @@ a {
     font: bold;
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    color: black;
+    color: #1f2937;
 }
 
 .dahlia-instructions-form {
@@ -288,7 +288,6 @@ button {
 
 button:hover {
     background-color: #1f2937;
-    /* Slightly lighter on hover */
     transform: translateY(-2px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
@@ -318,7 +317,6 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    align-items: self-start;
     width: 60vh;
 }
 
@@ -364,14 +362,15 @@ p {
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
     font-weight: 300;
-    color: var(--text-secondary);
+    background-color: white;
+    color: #1f2937;
 }
 
 h1 {
     font-size: x-large;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
-    color: var(--text-primary);
+    color: #1f2937;
 }
 
 img {
@@ -385,4 +384,13 @@ img {
     display: flex;
     flex-direction: column;
     margin: 40px;
+    color: #1f2937;
+    background-color: white;
+}
+
+.built-by-garden {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: self-start;
 }
