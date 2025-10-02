@@ -90,6 +90,16 @@ body {
     color: white;
 }
 
+.navigation-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 4px;
+    background-color:white;
+    padding: 7px;
+    border-radius: 2em;
+}
+
 
 .logo {
     display: flex;

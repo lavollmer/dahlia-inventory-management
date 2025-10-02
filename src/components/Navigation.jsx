@@ -5,21 +5,21 @@ const Navigation = () => {
   return (
     <>
       <div className='navigation'>
-        <button>
+        <div className="navigation-link">
           <Link to="/" style={{ textDecoration: 'none' }}>Home</Link>
-        </button>
-        <button>
+        </div>
+        <div className="navigation-link">
           <Link to='/adddahlia' style={{ textDecoration: 'none'}}>Add New Dahlia</Link>
-        </button>
-        <button>
+        </div>
+        <div className="navigation-link">
           <Link to="/database" style={{ textDecoration: 'none' }}>Database</Link>
-        </button>
-        <button>
+        </div>
+        <div className="navigation-link">
           <Link to="/FAQ" style={{ textDecoration: 'none' }}>FAQ</Link>
-        </button>
-         <button>
+        </div>
+         <div className="navigation-link">
           <Link to="/About" style={{textDecoration: 'none'}}>About</Link>
-         </button>
+         </div>
       </div>
     </>
   )
