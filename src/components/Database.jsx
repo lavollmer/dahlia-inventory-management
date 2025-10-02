@@ -1,8 +1,10 @@
 import Header from './Header'
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { FaPencilAlt } from "react-icons/fa";
+import { FaTrash } from "react-icons/fa";
 
-const Database = ({setFormData}) => {
+const Database = ({ setFormData }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
@@ -12,7 +14,7 @@ const Database = ({setFormData}) => {
     fetchData();
   }, []);
 
-  
+
   const handleEdit = async (item) => {
     // upload item data
     setFormData(item);
@@ -65,12 +67,16 @@ const Database = ({setFormData}) => {
               <th scope='col'>Number of Tubers</th>
               <th scope='col'>Storage</th>
               <th scope='col'>Condition</th>
+              <th scope='col'>Options</th>
             </tr>
           </thead>
           <tbody>
             {data.map(item => (
               <tr key={item._id}>
-                <td space="row">{item.name}</td>
+                <td space="row">
+                  <div className='item-name'>
+                    {item.name}
+                  </div></td>
                 <td space="row">{item.color}</td>
                 <td space="row">{item.containerId}</td>
                 <td space="row">{item.purchaseSource}</td>
@@ -79,10 +85,14 @@ const Database = ({setFormData}) => {
                 <td space="row">{item.storage}</td>
                 <td space="row">{item.condition}</td>
                 <td>
-                  <button onClick={() => handleEdit(item)}>Edit</button>
+                  <button onClick={() => handleEdit(item)}>
+                    <FaPencilAlt />
+                    Edit</button>
                 </td>
                 <td>
-                  <button onClick={() => handleDelete(item._id)}>Delete</button>
+                  <button onClick={() => handleDelete(item._id)}>
+                    <FaTrash />
+                    Delete</button>
                 </td>
               </tr>
             ))}

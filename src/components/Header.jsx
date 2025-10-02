@@ -26,9 +26,7 @@ const Header = () => {
             </button>
           </div>
         </div>
-        <div className="dropdown">
           {isOpen && <div className="faq-answer"><Navigation /></div>}
-        </div>
       </div>
     </>
   )
