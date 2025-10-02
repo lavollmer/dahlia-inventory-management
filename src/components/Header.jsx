@@ -22,7 +22,7 @@ const Header = () => {
           </div>
           <div>
             <button onClick={toggleOpen}>
-              <span>{isOpen ? <IoClose /> : <RxHamburgerMenu />}</span>
+              <span>{isOpen ? <IoClose /> : <RxHamburgerMenu size="1.2em" />}</span>
             </button>
           </div>
         </div>

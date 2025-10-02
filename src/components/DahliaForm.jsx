@@ -79,7 +79,10 @@ function DahliaForm() {
   return (
     <>
       <div className='dahlia-form'>
-        <h1>Dahlia Form</h1>
+        <div className='dahlia-instructions-form'>
+          <h2>Add a New Dahlia to the Inventory</h2>
+          <p>Use the form below to add a new dahlia variety to your flower inventory database. Include details like name, color, bloom size, and quantity.</p>
+        </div>
         <form className='dahlia-form-details' onSubmit={handleSubmit}>
           <label>
             Dahlia Variety Name:

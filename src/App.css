@@ -83,17 +83,16 @@ body {
 .navigation {
     display: flex;
     flex-direction: column;
-    align-items: baseline;
+    align-items: center;
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
-    background-color: #e8e9edff;
+    color: white;
 }
 
 .dropdown {
     flex: display;
     flex-direction: column;
-    align-items: flex-start;
     padding: 10px;
     background-color: #e8e9edff;
 }
@@ -112,20 +111,42 @@ body {
 .dahlia-form {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    justify-content: baseline;
-    padding: 10px;
+    align-items: center;
+    justify-content: center;
     font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font: 700;
+    width: 100vw;
 }
 
 .dahlia-form-details {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: baseline;
+    justify-content: center;
     padding: 10px;
+}
+
+label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 4px;
+}
+
+input {
+    display: flex;
+    font-size: medium;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font: 700;
+}
+
+.dahlia-instructions-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 70vw
 }
 
 .table {
@@ -213,6 +234,7 @@ button {
     border: none;
     border-radius: 8px;
     cursor: pointer;
+    margin: 2px;
 
     transition: background-color 0.2s ease, transform 0.1s ease, box-shadow 0.2s ease;
 }
