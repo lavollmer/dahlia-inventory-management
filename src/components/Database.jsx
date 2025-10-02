@@ -1,4 +1,4 @@
-import Header from './Header'
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaPencilAlt } from "react-icons/fa";
@@ -54,9 +54,6 @@ const Database = ({ setFormData }) => {
 
   return (
     <div>
-      <div>
-        <Header />
-      </div>
       <div className="table">
         <table>
           <caption>Dahlia Inventory Management Database</caption>

@@ -394,3 +394,12 @@ img {
     justify-content: start;
     align-items: self-start;
 }
+
+.database-features {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    border: 1px solid black;
+    width: 70vw;
+    border-radius: 1.2em;
+}

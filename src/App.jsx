@@ -3,7 +3,7 @@ import './App.css'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 // import components
 import Home from "./components/Home"
-import Database from "./components/Database"
+import Database from "./components/DatabasePage"
 import FAQ from "./components/FAQ"
 import AddDahlia from "./components/AddDahlia"
 import About from "./components/About"
