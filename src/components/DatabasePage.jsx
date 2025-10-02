@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { FaPlus } from "react-icons/fa";
 import Footer from './Footer'
 import "../App.css"
+import SearchBar from './SearchBar';
 
 const DatabasePage = () => {
     const navigate = useNavigate();
@@ -31,6 +32,7 @@ const DatabasePage = () => {
                     </div>
                     <div>
                         <h1>Search</h1>
+                        <SearchBar />
                     </div>
                 </div>
                 <div>

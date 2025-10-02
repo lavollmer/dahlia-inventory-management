@@ -13,6 +13,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+//SEARCH
+router.get('/search', async (req, res) => {
+    try {
+        const { query } = req.query
+        const inventory = await InventoryItem.find({
+            name: { $regex: query, $options: 'i' }
+        });
+        res.json(inventory)
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server Error')
+    }
+})
+
 // DELETE route
 router.delete('/:id', async (req, res) => {
     try {

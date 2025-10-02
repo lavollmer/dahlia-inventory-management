@@ -402,6 +402,7 @@ img {
     border: 1px solid black;
     width: 70vw;
     border-radius: 1.2em;
+    padding: 10px;
 }
 
 .database-page {
@@ -410,4 +411,11 @@ img {
     justify-content: center;
     align-items: center;
     height: 100%;
+    padding: 10px;
+}
+
+.search-bar {
+    display: flex;
+    flex-direction: row;
+    border-radius: 1.2em;
 }
