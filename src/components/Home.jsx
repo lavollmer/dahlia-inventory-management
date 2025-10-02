@@ -26,9 +26,12 @@ const Home = () => {
                     <Header />
                 </div>
                 <div className='background-image-splash'>
-                    <div className='splash-page'>
+                    <div class="splash-page">
                         <h1>Dahlia Flower Inventory Manager</h1>
-                        <p>Track, organize, and manage your dahlia collection with ease. Add new varieties, monitor quantities, and keep detailed records.</p>
+                        <section aria-labelledby="intro-heading">
+                            <h2 id="intro-heading">Simplify Your Dahlia Garden Management</h2>
+                            <p>Easily track, organize, and manage your dahlia flower collection with our intuitive inventory system. Add new varieties, monitor stock levels, and maintain detailed records — all in one place.</p>
+                        </section>
                     </div>
                 </div>
                 <div className='quick-add-dahlia'>
@@ -82,7 +85,7 @@ const Home = () => {
                 <div>
                     <Footer />
                 </div>
-            </div>
+            </div >
         </>
     )
 }
