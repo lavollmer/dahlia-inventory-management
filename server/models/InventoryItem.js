@@ -18,10 +18,11 @@ const InventoryItemSchema = new mongoose.Schema({
     storage: {
         type: String,
         default: 'Uncategorized',
+        required: true,
     },
     purchase_source: {
         type: String,
-        required: false,
+        required: true,
     },
     purchase_year: {
         type: Date,
@@ -29,11 +30,11 @@ const InventoryItemSchema = new mongoose.Schema({
     },
     numbers_of_tubers: {
         type: Number,
-        required: false,
+        required: true,
     },
     condition: {
         type: String,
-        required: false,
+        required: true,
     }}, {timestamps: true});
 
 module.exports = mongoose.model('InventoryItem', InventoryItemSchema)

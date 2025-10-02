@@ -5,7 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Home from "./components/Home"
 import Database from "./components/Database"
 import FAQ from "./components/FAQ"
-import Add from "./components/AddDahlia"
+import AddDahlia from "./components/AddDahlia"
 import About from "./components/About"
 
 function App() {
@@ -15,7 +15,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/adddahlia" element={<Add />} />
+          <Route path="/adddahlia" element={<AddDahlia />} />
           <Route path="/database" element={<Database />} />
           <Route path="/FAQ" element={<FAQ />} />
           <Route path="/About" element={<About />} />

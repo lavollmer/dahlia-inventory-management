@@ -9,6 +9,9 @@ const Navigation = () => {
           <Link to="/" style={{ textDecoration: 'none' }}>Home</Link>
         </button>
         <button>
+          <Link to='/adddahlia' style={{ textDecoration: 'none'}}>Add New Dahlia</Link>
+        </button>
+        <button>
           <Link to="/database" style={{ textDecoration: 'none' }}>Database</Link>
         </button>
         <button>
