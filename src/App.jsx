@@ -6,6 +6,7 @@ import Home from "./components/Home"
 import Database from "./components/Database"
 import FAQ from "./components/FAQ"
 import Add from "./components/AddDahlia"
+import About from "./components/About"
 
 function App() {
 
@@ -16,7 +17,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/adddahlia" element={<Add />} />
           <Route path="/database" element={<Database />} />
-          <Route path="FAQ" element={<FAQ />} />
+          <Route path="/FAQ" element={<FAQ />} />
+          <Route path="/About" element={<About />} />
         </Routes>
       </BrowserRouter>
     </>

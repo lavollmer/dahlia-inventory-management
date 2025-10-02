@@ -9,8 +9,6 @@ import { TbCircleNumber2Filled } from "react-icons/tb";
 import { TbCircleNumber3Filled } from "react-icons/tb";
 import { LuDatabase } from "react-icons/lu";
 import { FaQuestionCircle } from "react-icons/fa";
-import Dahlias from "../assets/orangedahlias.jpg"
-
 const Home = () => {
     const navigate = useNavigate();
     const [formData, setFormData] = useState(null);
@@ -27,9 +25,8 @@ const Home = () => {
                 </div>
                 <div className='background-image-splash'>
                     <div class="splash-page">
-                        <h1>Dahlia Flower Inventory Manager</h1>
+                        <h1>Simplify Your Dahlia Garden Management</h1>
                         <section aria-labelledby="intro-heading">
-                            <h2 id="intro-heading">Simplify Your Dahlia Garden Management</h2>
                             <p>Easily track, organize, and manage your dahlia flower collection with our intuitive inventory system. Add new varieties, monitor stock levels, and maintain detailed records — all in one place.</p>
                         </section>
                     </div>
@@ -73,14 +70,14 @@ const Home = () => {
                         <LuDatabase size="2em" />
                         <h1> View Database</h1>
                     </div>
-                    <p>Browse and manage your dahlia collection</p>
+                    <p>Browse and manage your dahlia collection.</p>
                 </div>
                 <div className='how-to-use-box'>
                     <div className='title-use'>
                         <FaQuestionCircle size="2em" />
                         <h1>Help & FAQ</h1>
                     </div>
-                    <p>Get answers to common questions and learn tips</p>
+                    <p>Get answers to common questions and learn tips.</p>
                 </div>
                 <div>
                     <Footer />

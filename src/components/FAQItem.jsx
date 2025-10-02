@@ -12,7 +12,7 @@ const FAQItem = ({question, answer}) => {
     }
 
   return (
-    <div>
+    <div className="faq-individual">
         <div className="faq-item">
             <button onClick={toggleOpen} className="faq-question">
                 {question}

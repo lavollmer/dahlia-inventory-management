@@ -9,7 +9,7 @@ body {
     flex-direction: column;
     background-color: var(--background);
     color: var(--text-primary);
-    
+
 }
 
 .footer {
@@ -232,6 +232,7 @@ button:active {
 .FAQ-page {
     display: flex;
     flex-direction: column;
+    justify-content: center;
 }
 
 .FAQ-page-body {
@@ -242,6 +243,28 @@ button:active {
     font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font: 200;
+}
+
+.faq-individual {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: self-start;
+    width: 60vh;
+}
+
+.faq-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 10px;
+}
+
+.faq-answer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .questions {
