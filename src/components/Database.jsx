@@ -55,7 +55,7 @@ const Database = ({ setFormData }) => {
   return (
     <div>
       <div className="table-wrapper">
-        <table className="table">
+        <table className="dahlia-table">
           <caption>Dahlia Inventory Management Database</caption>
           <thead>
             <tr>
@@ -85,14 +85,14 @@ const Database = ({ setFormData }) => {
                 <td space="row">{item.storage}</td>
                 <td space="row">{item.condition}</td>
                 <td>
-                  <button onClick={() => handleEdit(item)}>
+                  <button className="action-btn" onClick={() => handleEdit(item)}>
                     <FaPencilAlt />
-                    Edit</button>
+                   </button>
                 </td>
                 <td>
-                  <button onClick={() => handleDelete(item._id)}>
+                  <button className="action-btn" onClick={() => handleDelete(item._id)}>
                     <FaTrash />
-                    Delete</button>
+                   </button>
                 </td>
               </tr>
             ))}
