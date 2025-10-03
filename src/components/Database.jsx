@@ -54,8 +54,8 @@ const Database = ({ setFormData }) => {
 
   return (
     <div>
-      <div className="table">
-        <table>
+      <div className="table-wrapper">
+        <table className="table">
           <caption>Dahlia Inventory Management Database</caption>
           <thead>
             <tr>
