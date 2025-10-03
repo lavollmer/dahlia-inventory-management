@@ -78,10 +78,10 @@ const Database = ({ setFormData }) => {
                     {item.name}
                   </div></td>
                 <td space="row">{item.color}</td>
-                <td space="row">{item.containerId}</td>
-                <td space="row">{item.purchaseSource}</td>
-                <td space="row">{item.purchaseYear}</td>
-                <td space="row">{item.numberOfTubers}</td>
+                <td space="row">{item.container_id}</td>
+                <td space="row">{item.purchase_source}</td>
+                <td space="row">{new Date(item.purchase_year).getFullYear()}</td>
+                <td space="row">{item.number_of_tubers}</td>
                 <td space="row">{item.storage}</td>
                 <td space="row">{item.condition}</td>
                 <td>
