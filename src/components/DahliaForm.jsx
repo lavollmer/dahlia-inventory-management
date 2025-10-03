@@ -5,8 +5,12 @@ import "../App.css"
 function DahliaForm() {
   // useState for date input
   const [formData, setFormData] = useState({
+    _id: '',
     name: '',
+    variety: '',
     color: '',
+    status: '',
+    bloom_size: '',
     container_id: '',
     storage: '',
     purchase_source: '',
@@ -46,8 +50,12 @@ function DahliaForm() {
       }
 
       setFormData({
+        _id: '',
         name: '',
+        variety: '',
         color: '',
+        status: '',
+        bloom_size: '',
         container_id: '',
         storage: '',
         purchase_source: '',
@@ -76,8 +84,20 @@ function DahliaForm() {
             <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} />
           </label>
           <label>
+            Variety:
+            <input type="text" name="variety" value={formData.variety} onChange={handleChange} />
+          </label>
+          <label>
             Color:
             <input type="text" name="color" value={formData.color} onChange={handleChange} />
+          </label>
+          <label>
+            Bloom Size:
+            <input type="text" name="bloom_size" value={formData.bloom_size} onChange={handleChange} />
+          </label>
+          <label>
+            Status:
+            <input type="text" name="status" value={formData.status} onChange={handleChange} />
           </label>
           <label>
             Container ID:

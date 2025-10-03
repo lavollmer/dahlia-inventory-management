@@ -60,7 +60,10 @@ const Database = ({ setFormData }) => {
           <thead>
             <tr>
               <th scope='col'>Dahlia Variety Name</th>
+              <th scope='col'>Variety</th>
               <th scope='col'>Color</th>
+              <th scope='col'>Bloom Size</th>
+              <th scope='col'>Status</th>
               <th scope='col'>Container ID</th>
               <th scope='col'>Purchase Source</th>
               <th scope='col'>Purchase Year</th>
@@ -77,7 +80,10 @@ const Database = ({ setFormData }) => {
                   <div className='item-name'>
                     {item.name}
                   </div></td>
+                  <td space="row">{item.variety}</td>
                 <td space="row">{item.color}</td>
+                <td space="row">{item.bloom_size}</td>
+                <td space="row">{item.status}</td>
                 <td space="row">{item.container_id}</td>
                 <td space="row">{item.purchase_source}</td>
                 <td space="row">{new Date(item.purchase_year).getFullYear()}</td>

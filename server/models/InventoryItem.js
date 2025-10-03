@@ -2,12 +2,28 @@ const mongoose = require('mongoose');
 
 //Schema
 const InventoryItemSchema = new mongoose.Schema({
+    id: {
+        type:Number,
+        required: true,
+    },
     name:{
         type: String,
         required: true,
         trim: true,
     },
+    variety: {
+        type: String,
+        required:true
+    },
     color: {
+        type: String,
+        required: true,
+    },
+    bloom_size: {
+        type: Number,
+        required: true,
+    },
+    status: {
         type: String,
         required: true,
     },

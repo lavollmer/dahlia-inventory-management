@@ -7,6 +7,7 @@ import Database from "./components/DatabasePage"
 import FAQ from "./components/FAQ"
 import AddDahlia from "./components/AddDahlia"
 import About from "./components/About"
+import Tuber from "./components/Tuber"
 
 function App() {
 
@@ -18,7 +19,8 @@ function App() {
           <Route path="/adddahlia" element={<AddDahlia />} />
           <Route path="/database" element={<Database />} />
           <Route path="/FAQ" element={<FAQ />} />
-          <Route path="/About" element={<About />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/tuber" element={<Tuber />}/>
         </Routes>
       </BrowserRouter>
     </>

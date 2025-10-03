@@ -12,13 +12,16 @@ const Navigation = () => {
           <Link to='/adddahlia' style={{ textDecoration: 'none'}}>Add New Dahlia</Link>
         </div>
         <div className="navigation-link">
+          <Link to="/tuber" style={{textDecoration: 'none'}}>Tuber Detail</Link>
+         </div>
+        <div className="navigation-link">
           <Link to="/database" style={{ textDecoration: 'none' }}>Database</Link>
         </div>
         <div className="navigation-link">
           <Link to="/FAQ" style={{ textDecoration: 'none' }}>FAQ</Link>
         </div>
          <div className="navigation-link">
-          <Link to="/About" style={{textDecoration: 'none'}}>About</Link>
+          <Link to="/about" style={{textDecoration: 'none'}}>About</Link>
          </div>
       </div>
     </>
