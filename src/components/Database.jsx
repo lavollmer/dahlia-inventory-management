@@ -67,7 +67,7 @@ const Database = ({ setFormData }) => {
               <th scope='col'>Number of Tubers</th>
               <th scope='col'>Storage</th>
               <th scope='col'>Condition</th>
-              <th scope='col'>Options</th>
+              <th scope='col'>Action</th>
             </tr>
           </thead>
           <tbody>
@@ -88,8 +88,6 @@ const Database = ({ setFormData }) => {
                   <button className="action-btn" onClick={() => handleEdit(item)}>
                     <FaPencilAlt />
                    </button>
-                </td>
-                <td>
                   <button className="action-btn" onClick={() => handleDelete(item._id)}>
                     <FaTrash />
                    </button>
