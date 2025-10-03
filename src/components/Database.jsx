@@ -80,7 +80,7 @@ const Database = ({ setFormData }) => {
                   <div className='item-name'>
                     {item.name}
                   </div></td>
-                  <td space="row">{item.variety}</td>
+                <td space="row">{item.variety}</td>
                 <td space="row">{item.color}</td>
                 <td space="row">{item.bloom_size}</td>
                 <td space="row">{item.status}</td>
@@ -93,10 +93,10 @@ const Database = ({ setFormData }) => {
                 <td>
                   <button className="action-btn" onClick={() => handleEdit(item)}>
                     <FaPencilAlt />
-                   </button>
+                  </button>
                   <button className="action-btn" onClick={() => handleDelete(item._id)}>
                     <FaTrash />
-                   </button>
+                  </button>
                 </td>
               </tr>
             ))}
