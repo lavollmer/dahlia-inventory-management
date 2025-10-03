@@ -40,19 +40,19 @@ router.delete('/:id', async (req, res) => {
     }
 })
 
-// EDIT route
-router.put('/', async (req, res) => {
-    try {
-        const updatedItem = await InventoryItem.findByIdAndUpdate(
-            req.params.id,
-            req.body,
-            { new: true } // return updated doc
-        )
-        res.json(updatedItem);
-    } catch (err) {
-        res.status(400).json({ error: err.message })
-    }
-});
+// // EDIT route
+// router.put('/', async (req, res) => {
+//     try {
+//         const updatedItem = await InventoryItem.findByIdAndUpdate(
+//             req.params.id,
+//             req.body,
+//             { new: true } // return updated doc
+//         )
+//         res.json(updatedItem);
+//     } catch (err) {
+//         res.status(400).json({ error: err.message })
+//     }
+// });
 
 // POST route
 router.post('/', async (req, res) => {

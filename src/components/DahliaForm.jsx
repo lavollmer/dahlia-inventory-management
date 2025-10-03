@@ -93,7 +93,7 @@ function DahliaForm() {
           </label>
           <label>
             Purchase Year:
-            <input type="text" name="purchase_year" value={formData.purchase_year} onChange={handleChange} />
+            <input type="date" name="purchase_year" value={formData.purchase_year} onChange={handleChange} />
           </label>
           <label>
             Number of Tubers:

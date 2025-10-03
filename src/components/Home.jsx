@@ -24,7 +24,7 @@ const Home = () => {
                     <Header />
                 </div>
                 <div className='background-image-splash'>
-                    <div class="splash-page">
+                    <div className="splash-page">
                         <h1>Simplify Your Dahlia Garden Management</h1>
                         <section aria-labelledby="intro-heading">
                             <p>Easily track, organize, and manage your dahlia flower collection with our intuitive inventory system. Add new varieties, monitor stock levels, and maintain detailed records — all in one place.</p>

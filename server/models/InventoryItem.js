@@ -28,9 +28,9 @@ const InventoryItemSchema = new mongoose.Schema({
         type: Date,
         default: Date.now,
     },
-    numbers_of_tubers: {
+    number_of_tubers: {
         type: Number,
-        required: true,
+        required: false,
     },
     condition: {
         type: String,
