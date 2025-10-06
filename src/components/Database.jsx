@@ -20,6 +20,8 @@ const Database = ({ setFormData }) => {
   const handleEdit = async (item) => {
     //click the action button and trigger this function
 
+    setIsOpen(false)
+
   }
 
   const handleDelete = async (id) => {
@@ -102,20 +104,19 @@ const Database = ({ setFormData }) => {
           </tbody>
         </table>
         <div>
-          <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
-            <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-              <DialogPanel className="max-w-lg space-y-4 border bg-white p-12">
-                <DialogTitle className="font-bold">Deactivate account</DialogTitle>
-                <Description>This will permanently deactivate your account</Description>
-                <p>Are you sure you want to deactivate your account? All of your data will be permanently removed.</p>
-                <div className="flex gap-4">
-                  <button onClick={() => setIsOpen(false)}>Cancel</button>
-                  <button onClick={() => setIsOpen(false)}>Deactivate</button>
-                </div>
-              </DialogPanel>
-            </div>
-          </Dialog>
-        </div>
+          {isOpen ?
+            <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="modal">
+              <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
+                <DialogPanel className="max-w-lg space-y-4 border bg-white p-12">
+                  <DialogTitle className="font-bold">Edit Dahlia Details</DialogTitle>
+                  <Description>This will permanently change your data.</Description>
+                  <div className="flex gap-4">
+                    <button className="action-btn" onClick={() => setIsOpen(false)}>Cancel</button>
+                    <button className="action-btn" onClick={handleEdit}>Update</button>
+                  </div>
+                </DialogPanel>
+              </div>
+            </Dialog> : <div></div>}</div>
       </div>
     </div>
   )

@@ -477,3 +477,10 @@ img {
     align-items: center;
     justify-content: center;
 }
+
+.modal {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 50;
+}
