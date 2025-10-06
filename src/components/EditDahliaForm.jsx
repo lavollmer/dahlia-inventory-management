@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import "../App.css"
 
-function EditDahliaForm = ({ data, setData }) => {
+function EditDahliaForm ({ data, setData }) {
      const handleChange = (e) => {
         const {name, value} = e.target;
         setData(prev => ({

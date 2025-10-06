@@ -6,7 +6,7 @@ import { FaTrash } from "react-icons/fa";
 import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 import EditDahliaForm from "./EditDahliaForm"
 
-const Database = ({ setFormData }) => {
+const Database = () => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   let [isOpen, setIsOpen] = useState(false)
@@ -17,18 +17,6 @@ const Database = ({ setFormData }) => {
     fetchData();
   }, []);
 
-
-  const handleEdit = async (id) => {
-    //click the action button and trigger this function
-    setIsOpen(true)
-    try {
-      const response = await axios.get(`http://localhost:5000/inventory/${id}`);
-      console.log("Fetched data:", response.data)
-      setEditItem(response.data)
-    } catch (err) {
-      console.error("Error:", err)
-    }
-  }
 
 const handleUpdate = async () => {
   try {
@@ -90,11 +78,28 @@ const handleUpdate = async () => {
     try {
       const response = await axios.get('http://localhost:5000/inventory');
       console.log("Fetched data:", response.data)
+      console.trace();
       setData(response.data)
     } catch (err) {
       console.error("There was an error fetching data:", err)
     } finally {
       setLoading(false);
+    }
+  }
+
+  
+  const handleEdit = async (id) => {
+    //click the action button and trigger this function
+    setIsOpen(true)
+    console.trace();
+    console.log('Fetching inventory with ID:', id);
+
+    try {
+      const response = await axios.get(`http://localhost:5000/inventory/${item._id}`);
+      console.log("Fetched data:", response.data)
+      setEditItem(response.data)
+    } catch (err) {
+      console.error("Error:", err)
     }
   }
 

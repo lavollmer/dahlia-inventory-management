@@ -43,6 +43,7 @@ router.delete('/:id', async (req, res) => {
 // EDIT route
 router.put('/:id', async(req, res) => {
     try {
+         console.log('Fetching inventory with ID:', req.params.id);
         const editedItem = await InventoryItem.findByIdAndUpdate(req.params.id, req.body, {new:true});
         if (!editedItem) {
             return res.status(404).json({message: 'Item not found'})
