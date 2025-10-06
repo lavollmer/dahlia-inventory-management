@@ -63,7 +63,7 @@ function DahliaForm() {
         setIsEditing(false);
         setEditingId(null);
       } else {
-        const res = await axios.post("http://localhost:5000/inventory/", formToSend);
+        const res = await axios.post('http://localhost:5000/inventory/', formToSend);
         console.log('New item added:', res.data);
         alert('New item added!');
       }

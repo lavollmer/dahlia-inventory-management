@@ -16,7 +16,7 @@ const InventoryItemSchema = new mongoose.Schema({
         required: false,
     },
     bloom_size: {
-        type: Number,
+        type: String,
         required: false,
     },
     status: {
@@ -34,7 +34,7 @@ const InventoryItemSchema = new mongoose.Schema({
     },
     purchase_source: {
         type: String,
-        required: true,
+        required: false,
     },
     purchase_year: {
         type: Date,

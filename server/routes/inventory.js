@@ -57,7 +57,7 @@ router.delete('/:id', async (req, res) => {
 // POST route
 router.post('/', async (req, res) => {
     try {
-        const { name, color, container_id, storage, purchase_source, purchase_year, number_of_tubers, condition } = req.body;
+        const { name, color, bloom_size, variety, status, container_id, storage, purchase_source, purchase_year, number_of_tubers, condition } = req.body;
 
         // validation to avoid empty stuff
         if (!name || !color || !container_id) {
@@ -66,7 +66,10 @@ router.post('/', async (req, res) => {
 
         const newItem = new InventoryItem({
             name,
+            variety,
+            bloom_size,
             color,
+            status,
             container_id,
             storage,
             purchase_source,
