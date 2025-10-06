@@ -33,43 +33,63 @@ function DahliaForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-  const handleSubmit = async (e) => {
-    // preventing page refresh
-    e.preventDefault();
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-    try {
-      if (isEditing) {
-        await axios.put(`http://localhost:5000/inventory/${editingId}`, formData);
-        alert('Item updated successfully!');
-        setIsEditing(false);
-        setEditingId(null);
-      } else {
-        const res = await axios.post('http://localhost:5000/inventory', formData);
-        console.log('New item added:', res.data);
-        alert('New item added!');
-      }
+  // Clone the form data to avoid mutating state directly
+  const formToSend = { ...formData };
 
-      setFormData({
-        _id: '',
-        name: '',
-        variety: '',
-        color: '',
-        status: '',
-        bloom_size: '',
-        container_id: '',
-        storage: '',
-        purchase_source: '',
-        purchase_year: '',
-        number_of_tubers: '',
-        condition: '',
-      });
+  console.log("Form data being sent:", formToSend);
 
-    } catch (err) {
-      console.error(err);
-      alert('Error!');
+  // Remove _id if not in edit mode
+  if (!formToSend._id) {
+    delete formToSend._id;
+  }
+
+  // Required fields validation
+  const requiredFields = ['name', 'variety', 'color', 'status'];
+  const missingFields = requiredFields.filter(field => !formToSend[field]?.trim());
+
+  if (missingFields.length > 0) {
+    alert(`Please fill out all required fields: ${missingFields.join(', ')}`);
+    return;
+  }
+
+  try {
+    if (isEditing) {
+      await axios.put(`http://localhost:5000/inventory/${editingId}`, formToSend);
+      alert('Item updated successfully!');
+      setIsEditing(false);
+      setEditingId(null);
+    } else {
+      const res = await axios.post('http://localhost:5000/inventory', formToSend);
+      console.log('New item added:', res.data);
+      alert('New item added!');
     }
 
+    // Reset the form
+    setFormData({
+      _id: '',
+      name: '',
+      variety: '',
+      color: '',
+      status: '',
+      bloom_size: '',
+      container_id: '',
+      storage: '',
+      purchase_source: '',
+      purchase_year: '',
+      number_of_tubers: '',
+      condition: '',
+    });
+
+  } catch (err) {
+    console.error("Submission error:", err);
+    const message = err?.response?.data?.message || 'Unknown error occurred.';
+    alert(`Error submitting form: ${message}`);
   }
+};
+
 
   return (
     <>
@@ -87,7 +107,7 @@ function DahliaForm() {
             Variety:
             <input type="text" name="variety" value={formData.variety} onChange={handleChange} />
           </label>
-          <label for="color">
+          <label htmlFor="color">
             Color:
             <select id="color" name="color" value={formData.color} onChange={handleChange} >
               <option value="white">White</option>
@@ -103,7 +123,7 @@ function DahliaForm() {
             Bloom Size:
             <input type="text" name="bloom_size" value={formData.bloom_size} onChange={handleChange} />
           </label>
-          <label for="status">
+          <label htmlFor="status">
             Status:
             <select id="status" name="status" value={formData.status} onChange={handleChange}>
               <option value="planted">Planted</option>

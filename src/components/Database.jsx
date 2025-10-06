@@ -42,6 +42,7 @@ const Database = ({ setFormData }) => {
   const fetchData = async () => {
     try {
       const response = await axios.get('http://localhost:5000/inventory');
+      console.log("Fetched data:", response.data)
       setData(response.data)
     } catch (err) {
       console.error("There was an error fetching data:", err)

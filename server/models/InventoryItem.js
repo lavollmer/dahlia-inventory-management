@@ -17,7 +17,7 @@ const InventoryItemSchema = new mongoose.Schema({
     },
     color: {
         type: String,
-        required: true,
+        required: false,
     },
     bloom_size: {
         type: Number,
@@ -25,7 +25,7 @@ const InventoryItemSchema = new mongoose.Schema({
     },
     status: {
         type: String,
-        required: true,
+        required: false,
     },
     container_id: {
         type: Number,
