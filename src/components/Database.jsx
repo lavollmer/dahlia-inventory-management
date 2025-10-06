@@ -4,6 +4,7 @@ import axios from "axios";
 import { FaPencilAlt } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
 import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
+import EditDahliaForm from "./EditDahliaForm"
 
 const Database = ({ setFormData }) => {
   const [data, setData] = useState([]);
@@ -105,12 +106,13 @@ const Database = ({ setFormData }) => {
         </table>
         <div>
           {isOpen ?
-            <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="modal">
-              <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
-                <DialogPanel className="max-w-lg space-y-4 border bg-white p-12">
-                  <DialogTitle className="font-bold">Edit Dahlia Details</DialogTitle>
+            <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="modal-overlay">
+              <div className="modal-content">
+                <DialogPanel>
+                  <DialogTitle>Edit Dahlia Details</DialogTitle>
                   <Description>This will permanently change your data.</Description>
-                  <div className="flex gap-4">
+                  <EditDahliaForm />
+                  <div>
                     <button className="action-btn" onClick={() => setIsOpen(false)}>Cancel</button>
                     <button className="action-btn" onClick={handleEdit}>Update</button>
                   </div>
