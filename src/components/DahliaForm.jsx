@@ -3,27 +3,25 @@ import axios from 'axios';
 import "../App.css"
 
 function DahliaForm() {
-  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
-
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
 
   const emptyForm = {
-  _id: '',
-  name: '',
-  variety: '',
-  color: '',
-  status: '',
-  bloom_size: '',
-  container_id: '',
-  storage: '',
-  purchase_source: '',
-  purchase_year: '',
-  number_of_tubers: '',
-  condition: '',
-};
+    _id: '',
+    name: '',
+    variety: '',
+    color: '',
+    status: '',
+    bloom_size: '',
+    container_id: '',
+    storage: '',
+    purchase_source: '',
+    purchase_year: '',
+    number_of_tubers: '',
+    condition: '',
+  };
 
-const [formData, setFormData] = useState(emptyForm);
+  const [formData, setFormData] = useState(emptyForm);
 
   // useEffect(() => {
   //   if (formData) {
@@ -65,7 +63,7 @@ const [formData, setFormData] = useState(emptyForm);
         setIsEditing(false);
         setEditingId(null);
       } else {
-        const res = await axios.post(`${process.env.REACT_APP_API_URL}/inventory`, formToSend);
+        const res = await axios.post("http://localhost:5000/inventory/", formToSend);
         console.log('New item added:', res.data);
         alert('New item added!');
       }
@@ -94,29 +92,67 @@ const [formData, setFormData] = useState(emptyForm);
           </label>
           <label>
             Variety:
-            <input type="text" name="variety" value={formData.variety} onChange={handleChange} />
+            <select id="variety" name="variety" value={formData.variety} onChange={handleChange}>
+              <option value="">Please select a variety</option>
+              <option value="decorative_formal">Formal Decorative</option>
+              <option value="decorative_informal">Informal Decorative</option>
+              <option value="cactus_straight">Straight Cactus</option>
+              <option value="cactus_incurved">Incurved Cactus</option>
+              <option value="cactus_semi">Semi-Cactus</option>
+              <option value="ball">Ball</option>
+              <option value="pompon">Pompon</option>
+              <option value="anemone">Anemone-Flowered</option>
+              <option value="collarette">Collarette</option>
+              <option value="peony">Peony-Flowered</option>
+              <option value="single">Single</option>
+              <option value="waterlily">Waterlily</option>
+              <option value="stellar">Stellar</option>
+              <option value="orchid">Orchid</option>
+              <option value="novelty">Novelty</option>
+            </select>
           </label>
           <label htmlFor="color">
             Color:
             <select id="color" name="color" value={formData.color} onChange={handleChange} >
               <option value="">Select a color</option>
-              <option value="white">White</option>
-              <option value="red">Red</option>
-              <option value="yellow">Yellow</option>
+              <option value="bi-color">Bi-color</option>
+              <option value="burgundy">Burgundy</option>
+              <option value="cream">Cream</option>
+              <option value="lavender">Lavender</option>
               <option value="orange">Orange</option>
-              <option value="purple">Purple</option>
+              <option value="peach">Peach</option>
               <option value="pink">Pink</option>
+              <option value="purple">Purple</option>
+              <option value="red">Red</option>
+              <option value="salmon">Salmon</option>
+              <option value="speckled">Speckled</option>
+              <option value="striped">Striped</option>
+              <option value="white">White</option>
+              <option value="yellow">Yellow</option>
             </select>
           </label>
           <label>
             Bloom Size:
-            <input type="text" name="bloom_size" value={formData.bloom_size} onChange={handleChange} />
+            <select name="bloom_size" value={formData.bloom_size} onChange={handleChange}>
+              <option value="">Select bloom size</option>
+              <option value="giant">Giant (&gt;10 inches)</option>
+              <option value="large">Large (8-10 inches)</option>
+              <option value="medium">Medium (6-8 inches)</option>
+              <option value="small">Small (4-6 inches)</option>
+              <option value="miniature">Miniature (&lt;4 inches)</option>
+            </select>
           </label>
           <label htmlFor="status">
             Status:
             <select id="status" name="status" value={formData.status} onChange={handleChange}>
               <option value="">Select a status</option>
+              <option value="available">Available</option>
+              <option value="damaged">Damaged</option>
+              <option value="harvested">Harvested</option>
+              <option value="ordered">Ordered</option>
               <option value="planted">Planted</option>
+              <option value="reserved">Reserved</option>
+              <option value="sold">Sold</option>
               <option value="stored">Stored</option>
             </select>
           </label>
@@ -126,7 +162,11 @@ const [formData, setFormData] = useState(emptyForm);
           </label>
           <label>
             Storage Location:
-            <input type="text" name="storage" value={formData.storage} onChange={handleChange} />
+            <select name="storage" value={formData.storage} onChange={handleChange}>
+              <option value="">Select storage location</option>
+              <option value="basement">Basement</option>
+              <option value="garage">Garage</option>
+            </select>
           </label>
           <label>
             Purchase Source:
@@ -149,7 +189,14 @@ const [formData, setFormData] = useState(emptyForm);
           </label>
           <label>
             Condition:
-            <input type="text" name="condition" value={formData.condition} onChange={handleChange} />
+            <select name="condition" value={formData.condition} onChange={handleChange}>
+              <option value="">Select condition</option>
+              <option value="new">New</option>
+              <option value="good">Good</option>
+              <option value="fair">Fair</option>
+              <option value="poor">Poor</option>
+              <option value="damaged">Damaged</option>
+            </select>
           </label>
           <button type="submit">
             {isEditing ? "Update Item" : "Add Item"}
