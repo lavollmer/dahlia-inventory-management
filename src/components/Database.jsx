@@ -9,8 +9,6 @@ import EditDahliaForm from "./EditDahliaForm"
 const Database = ({ setFormData }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [isEditing, setIsEditing] = useState(false);
-  const [editingId, setEditingId] = useState(null);
   let [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
@@ -18,11 +16,16 @@ const Database = ({ setFormData }) => {
   }, []);
 
 
-  const handleEdit = async (item) => {
+  const handleEdit = async (id) => {
     //click the action button and trigger this function
-
-    setIsOpen(false)
-
+    setIsOpen(true)
+    try {
+      const response = await axios.get(`http://localhost:5000/inventory/${id}`);
+      console.log("Fetched data:", response.data)
+      setData(response.data)
+    } catch (err) {
+      console.error("Error:", err)
+    }
   }
 
   const handleDelete = async (id) => {
@@ -93,7 +96,7 @@ const Database = ({ setFormData }) => {
                 <td space="row">{item.storage}</td>
                 <td space="row">{item.condition}</td>
                 <td>
-                  <button className="action-btn" onClick={() => setIsOpen(true)}>
+                  <button className="action-btn" onClick={() => handleEdit(item._id)}>
                     <FaPencilAlt />
                   </button>
                   <button className="action-btn" onClick={() => handleDelete(item._id)}>
@@ -111,7 +114,7 @@ const Database = ({ setFormData }) => {
                 <DialogPanel>
                   <DialogTitle>Edit Dahlia Details</DialogTitle>
                   <Description>This will permanently change your data.</Description>
-                  <EditDahliaForm />
+                  <EditDahliaForm data={data} />
                   <div>
                     <button className="action-btn" onClick={() => setIsOpen(false)}>Cancel</button>
                     <button className="action-btn" onClick={handleEdit}>Update</button>

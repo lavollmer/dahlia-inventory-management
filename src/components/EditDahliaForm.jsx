@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import "../App.css"
 
-function EditDahliaForm() {
+function EditDahliaForm({data}) {
     const emptyForm = {
         _id: '',
         name: '',
@@ -22,14 +22,14 @@ function EditDahliaForm() {
 
     const handleChange = (e) => {
         // we are updating state by copying the old data, and setting it to the new value input by end user
-        setFormData({ ...formData, [e.target.name]: e.target.value })
+        setFormData({ ...data, [e.target.name]: e.target.value })
     }
 
     const handleSubmit = async (e) => {
         e.preventDefault();
 
         // Clone the form data to avoid mutating state directly
-        const formToSend = { ...formData };
+        const formToSend = { ...data };
 
         console.log("Form data being sent:", formToSend);
 
@@ -69,11 +69,11 @@ function EditDahliaForm() {
                 <form className='dahlia-form-details' onSubmit={handleSubmit}>
                     <label>
                         Dahlia Variety Name:
-                        <input name="name" placeholder="Name" value={formData.name} onChange={handleChange} />
+                        <input name="name" placeholder="Name" value={data.name} onChange={handleChange} />
                     </label>
                     <label>
                         Variety:
-                        <select id="variety" name="variety" value={formData.variety} onChange={handleChange}>
+                        <select id="variety" name="variety" value={data.variety} onChange={handleChange}>
                             <option value="">Please select a variety</option>
                             <option value="decorative_formal">Formal Decorative</option>
                             <option value="decorative_informal">Informal Decorative</option>
@@ -94,7 +94,7 @@ function EditDahliaForm() {
                     </label>
                     <label htmlFor="color">
                         Color:
-                        <select id="color" name="color" value={formData.color} onChange={handleChange} >
+                        <select id="color" name="color" value={data.color} onChange={handleChange} >
                             <option value="">Select a color</option>
                             <option value="bi-color">Bi-color</option>
                             <option value="burgundy">Burgundy</option>
@@ -114,7 +114,7 @@ function EditDahliaForm() {
                     </label>
                     <label>
                         Bloom Size:
-                        <select name="bloom_size" value={formData.bloom_size} onChange={handleChange}>
+                        <select name="bloom_size" value={data.bloom_size} onChange={handleChange}>
                             <option value="">Select bloom size</option>
                             <option value="giant">Giant (&gt;10 inches)</option>
                             <option value="large">Large (8-10 inches)</option>
@@ -125,7 +125,7 @@ function EditDahliaForm() {
                     </label>
                     <label htmlFor="status">
                         Status:
-                        <select id="status" name="status" value={formData.status} onChange={handleChange}>
+                        <select id="status" name="status" value={data.status} onChange={handleChange}>
                             <option value="">Select a status</option>
                             <option value="available">Available</option>
                             <option value="damaged">Damaged</option>
@@ -139,11 +139,11 @@ function EditDahliaForm() {
                     </label>
                     <label>
                         Container ID:
-                        <input type="text" name="container_id" value={formData.container_id} onChange={handleChange} />
+                        <input type="text" name="container_id" value={data.container_id} onChange={handleChange} />
                     </label>
                     <label>
                         Storage Location:
-                        <select name="storage" value={formData.storage} onChange={handleChange}>
+                        <select name="storage" value={data.storage} onChange={handleChange}>
                             <option value="">Select storage location</option>
                             <option value="basement">Basement</option>
                             <option value="garage">Garage</option>
@@ -151,7 +151,7 @@ function EditDahliaForm() {
                     </label>
                     <label>
                         Purchase Source:
-                        <input type="text" name="purchase_source" value={formData.purchase_source} onChange={handleChange} />
+                        <input type="text" name="purchase_source" value={data.purchase_source} onChange={handleChange} />
                     </label>
                     <label>
                         Purchase Year:
@@ -161,16 +161,16 @@ function EditDahliaForm() {
                             placeholder='e.g. 2025'
                             min="1990"
                             max={new Date().getFullYear()}
-                            value={formData.purchase_year}
+                            value={data.purchase_year}
                             onChange={handleChange} />
                     </label>
                     <label>
                         Number of Tubers:
-                        <input type="text" name="number_of_tubers" value={formData.number_of_tubers} onChange={handleChange} />
+                        <input type="text" name="number_of_tubers" value={data.number_of_tubers} onChange={handleChange} />
                     </label>
                     <label>
                         Condition:
-                        <select name="condition" value={formData.condition} onChange={handleChange}>
+                        <select name="condition" value={data.condition} onChange={handleChange}>
                             <option value="">Select condition</option>
                             <option value="new">New</option>
                             <option value="good">Good</option>
