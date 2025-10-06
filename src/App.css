@@ -1,7 +1,13 @@
+* {
+    box-sizing: border-box;
+    overflow-wrap: break-word;
+}
+
 body {
     background-color: var(--background);
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
 }
 
 .home {
@@ -9,7 +15,7 @@ body {
     flex-direction: column;
     background-color: white;
     color: #1f2937;
-
+    overflow-x: hidden;
 }
 
 .footer {
@@ -305,12 +311,14 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    margin:auto;
 }
 
 .FAQ-page-body {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    padding: 1rem;
     align-items: center;
     font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
@@ -321,21 +329,24 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    width: 60vh;
+    margin:auto;
+    width: 90%;
 }
 
 .faq-item {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
+    margin:auto;
     width: 100%;
-    padding: 10px;
+    padding: 1rem;
 }
 
 .faq-answer {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding: 1rem;
 }
 
 .questions {
@@ -348,13 +359,13 @@ button:active {
     font-size: medium;
     font-family: Georgia, 'Times New Roman', Times, serif;
     text-decoration: none;
-    padding: 10px;
+    padding: 1rem;
 }
 
 .questions-faq {
     display: flex;
     flex-direction: column;
-    padding: 40px;
+    padding: 1rem;
 }
 
 p {
