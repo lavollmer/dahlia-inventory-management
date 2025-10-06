@@ -10,6 +10,8 @@ const Database = ({ setFormData }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   let [isOpen, setIsOpen] = useState(false)
+  const [editItem, setEditItem] = useState(null);
+
 
   useEffect(() => {
     fetchData();
@@ -22,11 +24,24 @@ const Database = ({ setFormData }) => {
     try {
       const response = await axios.get(`http://localhost:5000/inventory/${id}`);
       console.log("Fetched data:", response.data)
-      setData(response.data)
+      setEditItem(response.data)
     } catch (err) {
       console.error("Error:", err)
     }
   }
+
+  const handleUpdate = async () => {
+  try {
+    await axios.put(`http://localhost:5000/inventory/${editItem._id}`, editItem);
+    alert("Item updated successfully!");
+    setIsOpen(false);
+    await fetchData(); 
+  } catch (err) {
+    console.error("Error updating item:", err);
+    alert("Failed to update item.");
+  }
+};
+
 
   const handleDelete = async (id) => {
     const confirmed = window.confirm("Are you sure you want to delete this item? It cannot be restored.");
@@ -108,23 +123,24 @@ const Database = ({ setFormData }) => {
           </tbody>
         </table>
         <div>
-          {isOpen ?
+          {isOpen && editItem && (
             <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="modal-overlay">
               <div className="modal-content">
                 <DialogPanel>
                   <DialogTitle>Edit Dahlia Details</DialogTitle>
                   <Description>This will permanently change your data.</Description>
-                  <EditDahliaForm data={data} />
+                  <EditDahliaForm data={editItem} setData={setEditItem} />
                   <div>
                     <button className="action-btn" onClick={() => setIsOpen(false)}>Cancel</button>
-                    <button className="action-btn" onClick={handleEdit}>Update</button>
+                    <button className="action-btn" onClick={handleUpdate}>Update</button>
                   </div>
                 </DialogPanel>
               </div>
-            </Dialog> : <div></div>}</div>
+            </Dialog> 
+          )}
       </div>
     </div>
-  )
-}
+    </div>
+)};
 
 export default Database;
