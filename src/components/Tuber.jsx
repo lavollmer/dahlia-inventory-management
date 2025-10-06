@@ -28,7 +28,18 @@ const Tuber = () => {
         <div>
           {data.map(item => (
             <div key={item._id}>
-              {item.name}
+              <div> {item._id}</div>
+              <div> {item.name}</div>
+              <div> {item.variety} </div>
+              <div> {item.color} </div>
+              <div> {item.bloom_size} </div>
+              <div> {item.status} </div>
+              <div> {item.container_id} </div>
+              <div> {item.storage} </div>
+              <div> {item.purchase_source} </div>
+              <div> {item.purchase_year} </div>
+              <div> {item.number_of_tubers} </div>
+              <div> {item.condition} </div>
             </div>
           ))}
         </div>
