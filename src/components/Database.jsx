@@ -3,12 +3,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import { FaPencilAlt } from "react-icons/fa";
 import { FaTrash } from "react-icons/fa";
+import { Description, Dialog, DialogPanel, DialogTitle } from '@headlessui/react'
 
 const Database = ({ setFormData }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
+  let [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     fetchData();
@@ -16,12 +18,8 @@ const Database = ({ setFormData }) => {
 
 
   const handleEdit = async (item) => {
-    // upload item data
-    setFormData(item);
-    // editing true
-    setIsEditing(true);
-    setEditingId(item._id);
-    await fetchData();
+    //click the action button and trigger this function
+
   }
 
   const handleDelete = async (id) => {
@@ -92,7 +90,7 @@ const Database = ({ setFormData }) => {
                 <td space="row">{item.storage}</td>
                 <td space="row">{item.condition}</td>
                 <td>
-                  <button className="action-btn" onClick={() => handleEdit(item)}>
+                  <button className="action-btn" onClick={() => setIsOpen(true)}>
                     <FaPencilAlt />
                   </button>
                   <button className="action-btn" onClick={() => handleDelete(item._id)}>
@@ -103,6 +101,21 @@ const Database = ({ setFormData }) => {
             ))}
           </tbody>
         </table>
+        <div>
+          <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="relative z-50">
+            <div className="fixed inset-0 flex w-screen items-center justify-center p-4">
+              <DialogPanel className="max-w-lg space-y-4 border bg-white p-12">
+                <DialogTitle className="font-bold">Deactivate account</DialogTitle>
+                <Description>This will permanently deactivate your account</Description>
+                <p>Are you sure you want to deactivate your account? All of your data will be permanently removed.</p>
+                <div className="flex gap-4">
+                  <button onClick={() => setIsOpen(false)}>Cancel</button>
+                  <button onClick={() => setIsOpen(false)}>Deactivate</button>
+                </div>
+              </DialogPanel>
+            </div>
+          </Dialog>
+        </div>
       </div>
     </div>
   )
