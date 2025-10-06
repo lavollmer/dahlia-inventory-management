@@ -87,17 +87,29 @@ function DahliaForm() {
             Variety:
             <input type="text" name="variety" value={formData.variety} onChange={handleChange} />
           </label>
-          <label>
+          <label for="color">
             Color:
-            <input type="text" name="color" value={formData.color} onChange={handleChange} />
+            <select id="color" name="color" value={formData.color} onChange={handleChange} >
+              <option value="white">White</option>
+              <option value="red">Red</option>
+              <option value="yellow">Yellow</option>
+              <option value="orange">Orange</option>
+              <option value="purple">Purple</option>
+              <option value="pink">Pink</option>
+            </select>
+            {/* <input type="text" name="color" value={formData.color} onChange={handleChange} /> */}
           </label>
           <label>
             Bloom Size:
             <input type="text" name="bloom_size" value={formData.bloom_size} onChange={handleChange} />
           </label>
-          <label>
+          <label for="status">
             Status:
-            <input type="text" name="status" value={formData.status} onChange={handleChange} />
+            <select id="status" name="status" value={formData.status} onChange={handleChange}>
+              <option value="planted">Planted</option>
+              <option value="stored">Stored</option>
+            </select>
+            {/* <input type="text" name="status" value={formData.status} onChange={handleChange} /> */}
           </label>
           <label>
             Container ID:
