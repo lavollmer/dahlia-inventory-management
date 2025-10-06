@@ -3,92 +3,81 @@ import axios from 'axios';
 import "../App.css"
 
 function DahliaForm() {
-  // useState for date input
-  const [formData, setFormData] = useState({
-    _id: '',
-    name: '',
-    variety: '',
-    color: '',
-    status: '',
-    bloom_size: '',
-    container_id: '',
-    storage: '',
-    purchase_source: '',
-    purchase_year: '',
-    number_of_tubers: '',
-    condition: '',
-  });
+  const apiUrl = process.env.REACT_APP_API_URL || 'http://localhost:5000';
 
   const [isEditing, setIsEditing] = useState(false);
   const [editingId, setEditingId] = useState(null);
 
-  useEffect(() => {
-    if (formData) {
-      setFormData(formData);
-    }
-  }, [formData]);
+  const emptyForm = {
+  _id: '',
+  name: '',
+  variety: '',
+  color: '',
+  status: '',
+  bloom_size: '',
+  container_id: '',
+  storage: '',
+  purchase_source: '',
+  purchase_year: '',
+  number_of_tubers: '',
+  condition: '',
+};
+
+const [formData, setFormData] = useState(emptyForm);
+
+  // useEffect(() => {
+  //   if (formData) {
+  //     setFormData(formData);
+  //   }
+  // }, [formData]);
 
   const handleChange = (e) => {
     // we are updating state by copying the old data, and setting it to the new value input by end user
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
 
-const handleSubmit = async (e) => {
-  e.preventDefault();
+  const handleSubmit = async (e) => {
+    e.preventDefault();
 
-  // Clone the form data to avoid mutating state directly
-  const formToSend = { ...formData };
+    // Clone the form data to avoid mutating state directly
+    const formToSend = { ...formData };
 
-  console.log("Form data being sent:", formToSend);
+    console.log("Form data being sent:", formToSend);
 
-  // Remove _id if not in edit mode
-  if (!formToSend._id) {
-    delete formToSend._id;
-  }
-
-  // Required fields validation
-  const requiredFields = ['name', 'variety', 'color', 'status'];
-  const missingFields = requiredFields.filter(field => !formToSend[field]?.trim());
-
-  if (missingFields.length > 0) {
-    alert(`Please fill out all required fields: ${missingFields.join(', ')}`);
-    return;
-  }
-
-  try {
-    if (isEditing) {
-      await axios.put(`http://localhost:5000/inventory/${editingId}`, formToSend);
-      alert('Item updated successfully!');
-      setIsEditing(false);
-      setEditingId(null);
-    } else {
-      const res = await axios.post('http://localhost:5000/inventory', formToSend);
-      console.log('New item added:', res.data);
-      alert('New item added!');
+    // Remove _id if not in edit mode
+    if (!formToSend._id) {
+      delete formToSend._id;
     }
 
-    // Reset the form
-    setFormData({
-      _id: '',
-      name: '',
-      variety: '',
-      color: '',
-      status: '',
-      bloom_size: '',
-      container_id: '',
-      storage: '',
-      purchase_source: '',
-      purchase_year: '',
-      number_of_tubers: '',
-      condition: '',
-    });
+    // Required fields validation
+    const requiredFields = ['name', 'variety', 'color', 'status'];
+    const missingFields = requiredFields.filter(field => !formToSend[field]?.trim());
 
-  } catch (err) {
-    console.error("Submission error:", err);
-    const message = err?.response?.data?.message || 'Unknown error occurred.';
-    alert(`Error submitting form: ${message}`);
-  }
-};
+    if (missingFields.length > 0) {
+      alert(`Please fill out all required fields: ${missingFields.join(', ')}`);
+      return;
+    }
+
+    try {
+      if (isEditing) {
+        await axios.put(`http://localhost:5000/inventory/${editingId}`, formToSend);
+        alert('Item updated successfully!');
+        setIsEditing(false);
+        setEditingId(null);
+      } else {
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/inventory`, formToSend);
+        console.log('New item added:', res.data);
+        alert('New item added!');
+      }
+
+      setFormData(emptyForm);
+
+    } catch (err) {
+      console.error("Submission error:", err);
+      const message = err?.response?.data?.message || 'Unknown error occurred.';
+      alert(`Error submitting form: ${message}`);
+    }
+  };
 
 
   return (
@@ -110,6 +99,7 @@ const handleSubmit = async (e) => {
           <label htmlFor="color">
             Color:
             <select id="color" name="color" value={formData.color} onChange={handleChange} >
+              <option value="">Select a color</option>
               <option value="white">White</option>
               <option value="red">Red</option>
               <option value="yellow">Yellow</option>
@@ -117,7 +107,6 @@ const handleSubmit = async (e) => {
               <option value="purple">Purple</option>
               <option value="pink">Pink</option>
             </select>
-            {/* <input type="text" name="color" value={formData.color} onChange={handleChange} /> */}
           </label>
           <label>
             Bloom Size:
@@ -126,10 +115,10 @@ const handleSubmit = async (e) => {
           <label htmlFor="status">
             Status:
             <select id="status" name="status" value={formData.status} onChange={handleChange}>
+              <option value="">Select a status</option>
               <option value="planted">Planted</option>
               <option value="stored">Stored</option>
             </select>
-            {/* <input type="text" name="status" value={formData.status} onChange={handleChange} /> */}
           </label>
           <label>
             Container ID:
@@ -145,7 +134,14 @@ const handleSubmit = async (e) => {
           </label>
           <label>
             Purchase Year:
-            <input type="date" name="purchase_year" value={formData.purchase_year} onChange={handleChange} />
+            <input
+              type="date"
+              name="purchase_year"
+              placeholder='e.g. 2025'
+              min="1990"
+              max={new Date().getFullYear()}
+              value={formData.purchase_year}
+              onChange={handleChange} />
           </label>
           <label>
             Number of Tubers:
@@ -156,7 +152,7 @@ const handleSubmit = async (e) => {
             <input type="text" name="condition" value={formData.condition} onChange={handleChange} />
           </label>
           <button type="submit">
-            Add Item
+            {isEditing ? "Update Item" : "Add Item"}
           </button>
         </form>
       </div>
