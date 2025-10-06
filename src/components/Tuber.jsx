@@ -16,7 +16,12 @@ const Tuber = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(`http://localhost:5000/inventory/${id}`);
-      setData(response.data)
+
+      if (!response.data || Object.keys(response.data).length === 0) {
+        setData(null);
+      } else {
+        setData(response.data)
+      }
     } catch (err) {
       console.error("There was an error fetching data:", err)
     } finally {
