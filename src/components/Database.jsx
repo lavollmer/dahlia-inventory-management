@@ -30,12 +30,40 @@ const Database = ({ setFormData }) => {
     }
   }
 
-  const handleUpdate = async () => {
+const handleUpdate = async () => {
   try {
-    await axios.put(`http://localhost:5000/inventory/${editItem._id}`, editItem);
+    const {
+      name,
+      variety,
+      color,
+      bloom_size,
+      status,
+      container_id,
+      purchase_source,
+      purchase_year,
+      number_of_tubers,
+      storage,
+      condition,
+    } = editItem;
+
+    const updatedData = {
+      name,
+      variety,
+      color,
+      bloom_size,
+      status,
+      container_id,
+      purchase_source,
+      purchase_year,
+      number_of_tubers,
+      storage,
+      condition,
+    };
+
+    await axios.put(`http://localhost:5000/inventory/${editItem._id}`, updatedData);
     alert("Item updated successfully!");
     setIsOpen(false);
-    await fetchData(); 
+    await fetchData();
   } catch (err) {
     console.error("Error updating item:", err);
     alert("Failed to update item.");
@@ -136,11 +164,12 @@ const Database = ({ setFormData }) => {
                   </div>
                 </DialogPanel>
               </div>
-            </Dialog> 
+            </Dialog>
           )}
+        </div>
       </div>
     </div>
-    </div>
-)};
+  )
+};
 
 export default Database;
