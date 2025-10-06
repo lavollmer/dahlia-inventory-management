@@ -32,30 +32,31 @@ const Tuber = () => {
     <div>
       <Header />
       <div className='individual-tuber'>
-        <h1>Individual Tuber Details</h1>
+        <div>
+          <h1>Individual Tuber Details</h1>
+        </div>
         {loading ? (
-          <p>Loading ...</p>
-        ) : data ? (
-          <div>
-            {data.map(item => (
-              <div key={item._id}>
-                <div> {item._id}</div>
-                <div> {item.name}</div>
-                <div> {item.variety} </div>
-                <div> {item.color} </div>
-                <div> {item.bloom_size} </div>
-                <div> {item.status} </div>
-                <div> {item.container_id} </div>
-                <div> {item.storage} </div>
-                <div> {item.purchase_source} </div>
-                <div> {item.purchase_year} </div>
-                <div> {item.number_of_tubers} </div>
-                <div> {item.condition} </div>
-              </div>
-            ) : (
-              <p>No data found for this tuber.</p>
+          <div className='loading'>
+            <p>Loading ...</p>
           </div>
-           )}
+        ) : data ? (
+          <div className='id-data'>
+            <div> {data._id}</div>
+            <div> {data.name}</div>
+            <div> {data.variety} </div>
+            <div> {data.color} </div>
+            <div> {data.bloom_size} </div>
+            <div> {data.status} </div>
+            <div> {data.container_id} </div>
+            <div> {data.storage} </div>
+            <div> {data.purchase_source} </div>
+            <div> {data.purchase_year} </div>
+            <div> {data.number_of_tubers} </div>
+            <div> {data.condition} </div>
+          </div>
+        ) : (
+          <p>No data found for this tuber.</p>
+        )}
       </div>
       <Footer />
     </div>

@@ -166,7 +166,7 @@ input {
     min-width: 900px;
     border: 1px solid;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    font: 200; 
+    font: 200;
     word-break: break-word;
     padding: 8px;
     text-align: left;
@@ -448,4 +448,11 @@ img {
     align-items: center;
     justify-content: center;
     padding: 10px;
+}
+
+.loading {
+    display: flex;
+    flex: column;
+    align-items: center;
+    justify-content: center;
 }
