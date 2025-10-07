@@ -13,8 +13,13 @@ const DataOverview = () => {
       .catch(error => console.error("Error fetching data:", error))
   }, []);
 
+  // number of varieties
   const uniqueVarieties = new Set(data.map(item => item.variety));
   const numberOfVarieties = uniqueVarieties.size;
+
+  // number of tubers
+  const total = data.reduce((acc, item) => acc + item.number_of_tubers, 0);
+  console.log(total)
 
   return (
     <div>
@@ -24,6 +29,7 @@ const DataOverview = () => {
         <p>Analytics Dashboard</p>
         <div className="summary">
           <h2>Summary</h2>
+          <p>Total number of tubers: {total} </p>
           <p>Total unique varieties: {numberOfVarieties}</p>
         </div>
       </div>
