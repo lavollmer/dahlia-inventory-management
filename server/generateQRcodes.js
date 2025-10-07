@@ -1,16 +1,47 @@
-const axios = require('axios')
-const QRCode = require('qrcode')
-const fs = require('fs')
+const axios = require('axios');
+const QRCode = require('qrcode');
+const fs = require('fs');
+const path = require('path');
 
-const BASE_URL ='https://dahlia-petal-ledger.netlify.app/'
-const API_URL = 'http://localhost:5000/inventory'
+const BASE_URL = 'https://dahlia-petal-ledger.netlify.app/';
+const API_URL = 'http://localhost:5000/inventory';
 
-async function fetchAllTubers () {
-    try {
-        const res = await axios.get(API_URL);
-        return res.data;
-    } catch (err) {
-        console.error("Failed to fetch tubers:", err.message)
-        return [];
-    }
+async function fetchAllTubers() {
+  try {
+    const res = await axios.get(API_URL);
+    return res.data; 
+  } catch (err) {
+    console.error("Failed to fetch tubers:", err.message);
+    return [];
+  }
 }
+
+async function generateQRCodes() {
+  const tubers = await fetchAllTubers();
+
+  const qrDir = path.join(__dirname,'qr_codes');
+  if (!fs.existsSync(qrDir)) {
+    fs.mkdirSync(qrDir);
+  }
+
+  for (const tuber of tubers) {
+    const url = `${BASE_URL}tuber/${tuber._id}`;
+    const outputFile = path.join(qrDir, `${tuber.name}_${tuber._id}.png`);
+
+    try {
+      await QRCode.toFile(outputFile, url, {
+        color: {
+          dark: '#000000',
+          light: '#ffffff',
+        },
+        margin: 2,
+        width: 300,
+      });
+      console.log(`QR code saved: ${outputFile}`);
+    } catch (err) {
+      console.error(`Error generating QR for ${tuber._id}:`, err.message);
+    }
+  }
+}
+
+generateQRCodes();
