@@ -15,7 +15,7 @@ router.get('/', async (req, res) => {
 });
 
 // GET route with id
-router.get('/inventory/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
     // extracts the id from url
     const { id } = req.params;
 

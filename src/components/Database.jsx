@@ -18,45 +18,45 @@ const Database = () => {
   }, []);
 
 
-const handleUpdate = async () => {
-  try {
-    const {
-      name,
-      variety,
-      color,
-      bloom_size,
-      status,
-      container_id,
-      purchase_source,
-      purchase_year,
-      number_of_tubers,
-      storage,
-      condition,
-    } = editItem;
+  const handleUpdate = async () => {
+    try {
+      const {
+        name,
+        variety,
+        color,
+        bloom_size,
+        status,
+        container_id,
+        purchase_source,
+        purchase_year,
+        number_of_tubers,
+        storage,
+        condition,
+      } = editItem;
 
-    const updatedData = {
-      name,
-      variety,
-      color,
-      bloom_size,
-      status,
-      container_id,
-      purchase_source,
-      purchase_year,
-      number_of_tubers,
-      storage,
-      condition,
-    };
+      const updatedData = {
+        name,
+        variety,
+        color,
+        bloom_size,
+        status,
+        container_id,
+        purchase_source,
+        purchase_year,
+        number_of_tubers,
+        storage,
+        condition,
+      };
 
-    await axios.put(`http://localhost:5000/inventory/${editItem._id}`, updatedData);
-    alert("Item updated successfully!");
-    setIsOpen(false);
-    await fetchData();
-  } catch (err) {
-    console.error("Error updating item:", err);
-    alert("Failed to update item.");
-  }
-};
+      await axios.put(`http://localhost:5000/inventory/${editItem._id}`, updatedData);
+      alert("Item updated successfully!");
+      setIsOpen(false);
+      await fetchData();
+    } catch (err) {
+      console.error("Error updating item:", err);
+      alert("Failed to update item.");
+    }
+  };
 
 
   const handleDelete = async (id) => {
@@ -87,7 +87,7 @@ const handleUpdate = async () => {
     }
   }
 
-  
+
   const handleEdit = async (id) => {
     //click the action button and trigger this function
     setIsOpen(true)
@@ -160,9 +160,13 @@ const handleUpdate = async () => {
             <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="modal-overlay">
               <div className="modal-content">
                 <DialogPanel>
-                  <DialogTitle>Edit Dahlia Details</DialogTitle>
-                  <Description>This will permanently change your data.</Description>
-                  <EditDahliaForm data={editItem} setData={setEditItem} />
+                  {/* <DialogTitle>Edit Dahlia Details</DialogTitle>
+                  <Description>This will permanently change your data.</Description> */}
+                  <EditDahliaForm
+                    data={selectedData}
+                    setData={setSelectedData}
+                    editingId={selectedData._id}
+                  />
                   <div>
                     <button className="action-btn" onClick={() => setIsOpen(false)}>Cancel</button>
                     <button className="action-btn" onClick={handleUpdate}>Update</button>

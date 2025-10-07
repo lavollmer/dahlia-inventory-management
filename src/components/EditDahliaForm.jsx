@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import "../App.css"
 
-function EditDahliaForm ({ data, setData }) {
+function EditDahliaForm ({ data, setData, editingId }) {
      const handleChange = (e) => {
         const {name, value} = e.target;
         setData(prev => ({
@@ -26,10 +26,11 @@ function EditDahliaForm ({ data, setData }) {
         condition: '',
     };
 
-    const [formData, setFormData] = useState(emptyForm);
-
     const handleSubmit = async (e) => {
+        // prevent refresh page
         e.preventDefault();
+
+        console.log('Form data being sent:', formData)
 
         // Clone the form data to avoid mutating state directly
         const formToSend = { ...data };
@@ -53,7 +54,7 @@ function EditDahliaForm ({ data, setData }) {
         try {
             await axios.put(`http://localhost:5000/inventory/${editingId}`, formToSend);
             alert('Item updated successfully!');
-            setFormData(emptyForm);
+            setData(emptyForm);
 
         } catch (err) {
             console.error("Submission error:", err);
@@ -65,7 +66,7 @@ function EditDahliaForm ({ data, setData }) {
 
     return (
         <>
-            <div className='dahlia-form'>
+            <div>
                 <div className='dahlia-instructions-form'>
                     <h2>Edit Dahlia Information</h2>
                 </div>
