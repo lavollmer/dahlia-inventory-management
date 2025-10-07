@@ -22,12 +22,11 @@ const DataOverview = () => {
   console.log(total)
 
 
-
   return (
     <div>
       <Header />
       <div className="analytics-page">
-        <h1 className="title-use">Analytics Dashboard</h1>
+        <h1>Analytics Dashboard</h1>
         <div className="summary">
           <h2>Summary</h2>
           <p>Total number of tubers: {total} </p>

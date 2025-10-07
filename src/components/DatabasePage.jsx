@@ -31,10 +31,10 @@ const DatabasePage = () => {
                                 Add New Dahlia
                             </button>
                         </div>
-                        <div>
+                        {/* <div>
                             <h1>Search</h1>
                             <SearchBar />
-                        </div>
+                        </div> */}
                     </div>
                     <div>
                         <Database />
