@@ -95,7 +95,7 @@ const handleUpdate = async () => {
     console.log('Fetching inventory with ID:', id);
 
     try {
-      const response = await axios.get(`http://localhost:5000/inventory/${item._id}`);
+      const response = await axios.get(`http://localhost:5000/inventory/${id}`);
       console.log("Fetched data:", response.data)
       setEditItem(response.data)
     } catch (err) {

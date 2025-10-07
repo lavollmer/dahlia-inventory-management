@@ -13,6 +13,20 @@ router.get('/', async (req, res) => {
     }
 });
 
+// GET route with id
+router.get('/inventory/:id', async (req, res) => {
+    // extracts the id from url
+    const id = req.params.id;
+    // uses mongoose's to find id
+    const item = await InventoryItem.findById(id);
+
+    if (!item) {
+        return res.status(404).send({ message: 'Item not found' })
+    }
+
+    res.send(item);
+});
+
 //SEARCH
 router.get('/search', async (req, res) => {
     try {
@@ -41,18 +55,18 @@ router.delete('/:id', async (req, res) => {
 })
 
 // EDIT route
-router.put('/:id', async(req, res) => {
+router.put('/:id', async (req, res) => {
     try {
-         console.log('Fetching inventory with ID:', req.params.id);
-        const editedItem = await InventoryItem.findByIdAndUpdate(req.params.id, req.body, {new:true});
+        console.log('Fetching inventory with ID:', req.params.id);
+        const editedItem = await InventoryItem.findByIdAndUpdate(req.params.id, req.body, { new: true });
         if (!editedItem) {
-            return res.status(404).json({message: 'Item not found'})
-        } 
+            return res.status(404).json({ message: 'Item not found' })
+        }
         res.status(200).json(editedItem);
     } catch (err) {
-            console.error(err)
-            res.status(500).json({message: 'Server error'})
-        }
+        console.error(err)
+        res.status(500).json({ message: 'Server error' })
+    }
 })
 
 // POST route
