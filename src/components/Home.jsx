@@ -17,6 +17,14 @@ const Home = () => {
         navigate('/adddahlia')
     }
 
+    const handleDatabaseClick = (e) => {
+        navigate('/database')
+    }
+
+    const handleHelpClick = (e) => {
+        navigate('/FAQ')
+    }
+
     return (
         <>
             <div className='home'>
@@ -68,9 +76,13 @@ const Home = () => {
                 <div className='how-to-use-box'>
                     <div className='title-use'>
                         <LuDatabase size="2em" />
-                        <h1> View Database</h1>
+                        <h1>View Database</h1>
                     </div>
                     <p>Browse and manage your dahlia collection.</p>
+                    <button onClick={handleDatabaseClick}>
+                        <FaPlus size="1em" />
+                        View Database
+                    </button>
                 </div>
                 <div className='how-to-use-box'>
                     <div className='title-use'>
@@ -78,6 +90,10 @@ const Home = () => {
                         <h1>Help & FAQ</h1>
                     </div>
                     <p>Get answers to common questions and learn tips.</p>
+                    <button onClick={handleHelpClick}>
+                        <FaPlus size="1em" />
+                        Help & FAQ
+                    </button>
                 </div>
                 <div>
                     <Footer />

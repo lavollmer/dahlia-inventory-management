@@ -231,7 +231,8 @@ td {
 
 .how-to-use-box {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
     padding: 10px;
     border: 1px solid black;
     margin: 10px;
@@ -257,7 +258,7 @@ td {
     display: flex;
     flex-direction: row;
     align-items: center;
-    text-align: center;
+    justify-content: space-evenly;
     padding: 2px;
     font-size: small;
     font-family: Georgia, 'Times New Roman', Times, serif;
