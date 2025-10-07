@@ -231,8 +231,8 @@ td {
 
 .how-to-use-box {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: center;
     padding: 10px;
     border: 1px solid black;
     margin: 10px;

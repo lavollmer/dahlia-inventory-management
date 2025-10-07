@@ -73,7 +73,7 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
-                <div className='how-to-use-box'>
+                <div className='quick-add-dahlia'>
                     <div className='title-use'>
                         <LuDatabase size="2em" />
                         <h1>View Database</h1>
@@ -84,7 +84,7 @@ const Home = () => {
                         View Database
                     </button>
                 </div>
-                <div className='how-to-use-box'>
+                <div className='quick-add-dahlia'>
                     <div className='title-use'>
                         <FaQuestionCircle size="2em" />
                         <h1>Help & FAQ</h1>
