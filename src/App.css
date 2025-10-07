@@ -528,3 +528,10 @@ img {
     padding: 1rem;
     margin: auto;
 }
+
+.dahlia-color-chart {
+    display: flex;
+    flex-direction: row;
+    padding: 1rem;
+    margin: auto;
+}
