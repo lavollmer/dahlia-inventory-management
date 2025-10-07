@@ -1,12 +1,17 @@
-
+import Header from "./Header"
+import Footer from "./Footer"
 
 const DataOverview = () => {
   return (
     <div>
-      <h1>Analytics</h1>
+      <Header />
       <div>
-        <p>Analytics Dashboard</p>
+        <h1>Analytics</h1>
+        <div>
+          <p>Analytics Dashboard</p>
+        </div>
       </div>
+      <Footer />
     </div>
   )
 }
