@@ -11,6 +11,8 @@ const Database = () => {
   const [loading, setLoading] = useState(true);
   let [isOpen, setIsOpen] = useState(false)
   const [editItem, setEditItem] = useState(null);
+  const [selectedData, setSelectedData] = useState(null);
+
 
 
   useEffect(() => {
@@ -97,7 +99,7 @@ const Database = () => {
     try {
       const response = await axios.get(`http://localhost:5000/inventory/${id}`);
       console.log("Fetched data:", response.data)
-      setEditItem(response.data)
+      setSelectedData(response.data)
     } catch (err) {
       console.error("Error:", err)
     }
@@ -156,17 +158,17 @@ const Database = () => {
           </tbody>
         </table>
         <div>
-          {isOpen && editItem && (
+          {isOpen && selectedData && (
             <Dialog open={isOpen} onClose={() => setIsOpen(false)} className="modal-overlay">
               <div className="modal-content">
                 <DialogPanel>
                   {/* <DialogTitle>Edit Dahlia Details</DialogTitle>
                   <Description>This will permanently change your data.</Description> */}
-                  <EditDahliaForm
-                    data={selectedData}
-                    setData={setSelectedData}
-                    editingId={selectedData._id}
-                  />
+                    <EditDahliaForm
+                      data={selectedData}
+                      setData={setSelectedData}
+                      editingId={selectedData._id}
+                    />
                   <div>
                     <button className="action-btn" onClick={() => setIsOpen(false)}>Cancel</button>
                     <button className="action-btn" onClick={handleUpdate}>Update</button>
