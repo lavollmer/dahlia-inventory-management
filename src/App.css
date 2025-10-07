@@ -312,7 +312,7 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin:auto;
+    margin: auto;
 }
 
 .FAQ-page-body {
@@ -330,7 +330,7 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    margin:auto;
+    margin: auto;
     width: 90%;
 }
 
@@ -338,7 +338,7 @@ button:active {
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin:auto;
+    margin: auto;
     width: 100%;
     padding: 1rem;
 }
@@ -510,4 +510,10 @@ img {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+}
+
+.analytics-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
