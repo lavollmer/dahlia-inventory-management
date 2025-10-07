@@ -2,67 +2,71 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import "../App.css"
 
-function EditDahliaForm ({ data, setData, editingId }) {
-     const handleChange = (e) => {
-        const {name, value} = e.target;
+function EditDahliaForm({ data, setData, editingId, onSubmit }) {
+    const handleChange = (e) => {
+        const { name, value } = e.target;
         setData(prev => ({
             ...prev,
             [name]: value
         }));
     };
 
-    const emptyForm = {
-        _id: '',
-        name: '',
-        variety: '',
-        color: '',
-        status: '',
-        bloom_size: '',
-        container_id: '',
-        storage: '',
-        purchase_source: '',
-        purchase_year: '',
-        number_of_tubers: '',
-        condition: '',
-    };
+    // const emptyForm = {
+    //     _id: '',
+    //     name: '',
+    //     variety: '',
+    //     color: '',
+    //     status: '',
+    //     bloom_size: '',
+    //     container_id: '',
+    //     storage: '',
+    //     purchase_source: '',
+    //     purchase_year: '',
+    //     number_of_tubers: '',
+    //     condition: '',
+    // };
 
-    const handleSubmit = async (e) => {
-        // prevent refresh page
+    // const handleSubmit = async (e) => {
+    //     // prevent refresh page
+    //     e.preventDefault();
+
+    //     console.log('Form data being sent:', data);
+
+    //     // Clone the form data to avoid mutating state directly
+    //     const formToSend = { ...data };
+
+    //     console.log("Form data being sent:", formToSend);
+
+    //     // Remove _id if not in edit mode
+    //     if (!formToSend._id) {
+    //         delete formToSend._id;
+    //     }
+
+    //     // Required fields validation
+    //     const requiredFields = ['name', 'variety', 'bloom_size', 'color', 'status'];
+    //     const missingFields = requiredFields.filter(field => !formToSend[field]?.trim());
+
+    //     if (missingFields.length > 0) {
+    //         alert(`Please fill out all required fields: ${missingFields.join(', ')}`);
+    //         return;
+    //     }
+
+    //     try {
+    //         await axios.put(`http://localhost:5000/inventory/${editingId}`, formToSend);
+    //         alert('Item updated successfully!');
+    //         setData(emptyForm);
+
+    //     } catch (err) {
+    //         console.error("Submission error:", err);
+    //         const message = err?.response?.data?.message || 'Unknown error occurred.';
+    //         alert(`Error submitting form: ${message}`);
+    //     }
+    // };
+
+    const handleSubmit = (e) => {
         e.preventDefault();
-
-        console.log('Form data being sent:', formData)
-
-        // Clone the form data to avoid mutating state directly
-        const formToSend = { ...data };
-
-        console.log("Form data being sent:", formToSend);
-
-        // Remove _id if not in edit mode
-        if (!formToSend._id) {
-            delete formToSend._id;
-        }
-
-        // Required fields validation
-        const requiredFields = ['name', 'variety', 'bloom_size', 'color', 'status'];
-        const missingFields = requiredFields.filter(field => !formToSend[field]?.trim());
-
-        if (missingFields.length > 0) {
-            alert(`Please fill out all required fields: ${missingFields.join(', ')}`);
-            return;
-        }
-
-        try {
-            await axios.put(`http://localhost:5000/inventory/${editingId}`, formToSend);
-            alert('Item updated successfully!');
-            setData(emptyForm);
-
-        } catch (err) {
-            console.error("Submission error:", err);
-            const message = err?.response?.data?.message || 'Unknown error occurred.';
-            alert(`Error submitting form: ${message}`);
-        }
+        if (onSubmit) onSubmit(); // call parent handler
     };
-
 
     return (
         <>
@@ -165,7 +169,7 @@ function EditDahliaForm ({ data, setData, editingId }) {
                             placeholder='e.g. 2025'
                             min="1990"
                             max={new Date().getFullYear()}
-                            value={data.purchase_year}
+                            value={data.purchase_year ? new Date(data.purchase_year).toISOString().split('T')[0] : ''}
                             onChange={handleChange} />
                     </label>
                     <label>

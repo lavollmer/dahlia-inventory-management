@@ -20,45 +20,50 @@ const Database = () => {
   }, []);
 
 
-  const handleUpdate = async () => {
-    try {
-      const {
-        name,
-        variety,
-        color,
-        bloom_size,
-        status,
-        container_id,
-        purchase_source,
-        purchase_year,
-        number_of_tubers,
-        storage,
-        condition,
-      } = editItem;
+const handleUpdate = async () => {
+  try {
+    const {
+      name,
+      variety,
+      color,
+      bloom_size,
+      status,
+      container_id,
+      purchase_source,
+      purchase_year,
+      number_of_tubers,
+      storage,
+      condition,
+    } = selectedData;
 
-      const updatedData = {
-        name,
-        variety,
-        color,
-        bloom_size,
-        status,
-        container_id,
-        purchase_source,
-        purchase_year,
-        number_of_tubers,
-        storage,
-        condition,
-      };
+    const updatedData = {
+      name,
+      variety,
+      color,
+      bloom_size,
+      status,
+      container_id,
+      purchase_source,
+      purchase_year,
+      number_of_tubers,
+      storage,
+      condition,
+    };
 
-      await axios.put(`http://localhost:5000/inventory/${editItem._id}`, updatedData);
-      alert("Item updated successfully!");
-      setIsOpen(false);
-      await fetchData();
-    } catch (err) {
-      console.error("Error updating item:", err);
-      alert("Failed to update item.");
-    }
-  };
+    await axios.put(`http://localhost:5000/inventory/${selectedData._id}`, updatedData);
+    alert("Item updated successfully!");
+
+    setIsOpen(false);
+
+    await fetchData();
+
+    setSelectedData(null);
+
+  } catch (err) {
+    console.error("Error updating item:", err);
+    alert("Failed to update item.");
+  }
+};
 
 
   const handleDelete = async (id) => {
@@ -164,11 +169,12 @@ const Database = () => {
                 <DialogPanel>
                   {/* <DialogTitle>Edit Dahlia Details</DialogTitle>
                   <Description>This will permanently change your data.</Description> */}
-                    <EditDahliaForm
-                      data={selectedData}
-                      setData={setSelectedData}
-                      editingId={selectedData._id}
-                    />
+                  <EditDahliaForm
+                    data={selectedData}
+                    setData={setSelectedData}
+                    editingId={selectedData._id}
+                    onSubmit={handleUpdate}
+                  />
                   <div>
                     <button className="action-btn" onClick={() => setIsOpen(false)}>Cancel</button>
                     <button className="action-btn" onClick={handleUpdate}>Update</button>
