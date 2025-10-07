@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const InventoryItem = require('../models/InventoryItem')
+const mongoose = require('mongoose')
 
 // GET route
 router.get('/', async (req, res) => {
@@ -16,15 +17,19 @@ router.get('/', async (req, res) => {
 // GET route with id
 router.get('/inventory/:id', async (req, res) => {
     // extracts the id from url
-    const id = req.params.id;
-    // uses mongoose's to find id
+    const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        return res.status(400).json({ message: 'Invalid ID format' })
+    }
+
     const item = await InventoryItem.findById(id);
 
     if (!item) {
-        return res.status(404).send({ message: 'Item not found' })
+        return res.status(404).json({ message: 'Item not found' });
     }
 
-    res.send(item);
+    res.json(item);
 });
 
 //SEARCH
