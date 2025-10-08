@@ -1,6 +1,9 @@
 // load environment variables
 require('dotenv').config();
 
+//cors
+const cors = require('cors')
+
 // server setup express
 const express = require('express');
 const mongoose = require('mongoose');
@@ -27,6 +30,10 @@ mongoose.connect(process.env.MONGO_URI)
 app.get('/', (req, res) => {
     res.send('Hello!')
 });
+
+// Enable CORS for Netlify
+app.use(cors({
+  origin: 'https://dahlia-petal-ledger.netlify.app/',
 
 // Listening on a PORT
 app.listen(PORT, () => {

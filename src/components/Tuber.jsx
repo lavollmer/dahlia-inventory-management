@@ -9,13 +9,15 @@ const Tuber = () => {
   // get the id from the url
   const { id } = useParams();
 
+  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+
   // useState values
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`http://localhost:5000/inventory/${id}`);
+      const response = await axios.get(`${API_BASE_URL}/inventory/${id}`);
 
       if (!response.data || Object.keys(response.data).length === 0) {
         setData(null);
