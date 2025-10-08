@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 import axios from 'axios';
 import DahliaColorChart from "../graphs/DahliaColorChart"
 import TubersByVariety from "../graphs/TubersByVariety";
+import PurchaseTrends from "../graphs/PurchaseTrends";
 
 const DataOverview = () => {
   const [data, setData] = useState([]);
@@ -38,6 +39,9 @@ const DataOverview = () => {
         </div>
         <div className="dahlia-color-chart">
             <TubersByVariety inventory={data} />
+        </div>
+        <div>
+            <PurchaseTrends inventory={data} />
         </div>
       </div>
       <Footer />
