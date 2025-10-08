@@ -1,20 +1,21 @@
 // load environment variables
 require('dotenv').config();
 
-//cors
-const cors = require('cors')
-
 // server setup express
 const express = require('express');
 const mongoose = require('mongoose');
-const cors = require ('cors');
+const cors = require('cors');
 
 // setting up express and PORT
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware enables cors
-app.use(cors());
+// Enable CORS for Netlify
+app.use(cors({
+  origin: 'https://dahlia-petal-ledger.netlify.app', 
+}));
+
+// Middleware
 app.use(express.json());
 
 // Mounted the Routes
@@ -23,17 +24,13 @@ app.use('/inventory', inventoryRoutes);
 
 //Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
-.then (() => console.log('MongoDB Atlas connected!'))
-.catch(err => console.error('Mongoose Error:', err));
+    .then(() => console.log('MongoDB Atlas connected!'))
+    .catch(err => console.error('Mongoose Error:', err));
 
 // GET endpoint
 app.get('/', (req, res) => {
     res.send('Hello!')
 });
-
-// Enable CORS for Netlify
-app.use(cors({
-  origin: 'https://dahlia-petal-ledger.netlify.app/',
 
 // Listening on a PORT
 app.listen(PORT, () => {

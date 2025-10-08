@@ -17,7 +17,7 @@ const Tuber = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`${API_BASE_URL}/inventory/${id}`);
+      const response = await axios.get(`https://dahlia-petal-ledger.herokuapp.com/inventory/${id}`);
 
       if (!response.data || Object.keys(response.data).length === 0) {
         setData(null);
