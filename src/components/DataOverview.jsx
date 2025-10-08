@@ -40,7 +40,7 @@ const DataOverview = () => {
         <div className="dahlia-color-chart">
             <TubersByVariety inventory={data} />
         </div>
-        <div>
+        <div className="dahlia-color-chart">
             <PurchaseTrends inventory={data} />
         </div>
       </div>

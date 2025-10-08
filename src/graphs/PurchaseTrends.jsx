@@ -1,5 +1,5 @@
 import "../App.css"
-import { LineChart, XAxis, YAxis, Tooltip, Line } from 'recharts';
+import { LineChart, XAxis, YAxis, Tooltip, Line, CartesianGrid } from 'recharts';
 
 
 const PurchaseTrends = ({ inventory }) => {
@@ -16,7 +16,8 @@ const PurchaseTrends = ({ inventory }) => {
             <h1>Purchase Trends</h1>
             <div>
                 <LineChart width={600} height={300} data={formattedData}>
-                    <YAxis strokeDasharray="3 3" />
+                    <CartesianGrid strokeDasharray="3 3" />
+                    <YAxis />
                     <XAxis dataKey="purchase_year" />
                     <Tooltip />
                     <Line type="monotone" dataKey="number_of_tubers" stroke="#8884d8" />
