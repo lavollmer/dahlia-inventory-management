@@ -167,9 +167,9 @@ input {
 
 
 .dahlia-table {
+    min-width: 1000px;
     width: 100%;
     border-collapse: collapse;
-    min-width: 900px;
     border: 1px solid;
     font-family: Georgia, 'Times New Roman', Times, serif;
     font: 200;
@@ -180,6 +180,7 @@ input {
 
 .table-container {
     overflow-x: auto;
+    width: 100%;
 }
 
 thead {
