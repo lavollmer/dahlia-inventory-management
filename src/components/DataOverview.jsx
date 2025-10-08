@@ -3,6 +3,7 @@ import Footer from "./Footer"
 import { useState, useEffect } from 'react'
 import axios from 'axios';
 import DahliaColorChart from "../graphs/DahliaColorChart"
+import TubersByVariety from "../graphs/TubersByVariety";
 
 const DataOverview = () => {
   const [data, setData] = useState([]);
@@ -34,6 +35,9 @@ const DataOverview = () => {
         </div>
         <div className="dahlia-color-chart">
             <DahliaColorChart inventory={data} />
+        </div>
+        <div className="dahlia-color-chart">
+            <TubersByVariety inventory={data} />
         </div>
       </div>
       <Footer />
