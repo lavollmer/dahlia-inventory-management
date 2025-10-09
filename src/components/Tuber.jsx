@@ -72,7 +72,7 @@ const Tuber = () => {
       <Header />
       <div className='individual-tuber'>
         <h1>Individual Tuber Details</h1>
-
+        <h2>Use the dropdown menu to review individual tuber details or scan the QR code on the tuber for quick access to its information.</h2>
         {!id && (
           <div className="tuber-selector">
             <label htmlFor="tuber-select">Select a tuber:</label>
