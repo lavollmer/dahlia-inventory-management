@@ -33,6 +33,7 @@ mongoose.connect(process.env.MONGO_URI)
 // GET endpoint
 app.get('/', (req, res) => {
     res.send('Hello!')
+    res.json({ message: 'Inventory list here' })
 });
 
 // Listening on a PORT
