@@ -117,3 +117,5 @@ const Tuber = () => {
     </div>
   );
 };
+
+export default Tuber
