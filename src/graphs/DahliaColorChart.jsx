@@ -17,10 +17,10 @@ const DahliaColorChart = ({ inventory }) => {
     return (
         <div>
             <h1>Number of Dahlias by Color</h1>
-            <BarChart width={730} height={250} data={data}>
+            <BarChart width={730} height={250} data={data} barCategoryGap={40} barGap={5} >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey="Colors" />
-                <YAxis />
+                <YAxis allowDecimals={false} />
                 <Tooltip />
                 <Legend />
                 <Bar dataKey="count" fill="#545099ff" />

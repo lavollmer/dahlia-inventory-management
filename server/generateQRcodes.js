@@ -3,8 +3,11 @@ const QRCode = require('qrcode');
 const fs = require('fs');
 const path = require('path');
 
+// Netlify
 const BASE_URL = 'https://dahlia-petal-ledger.netlify.app/';
-const API_URL = 'http://localhost:5000/inventory';
+
+// Heroku backend
+const API_URL = 'https://dahlia-petal-ledger.herokuapp.com/inventory';
 
 async function fetchAllTubers() {
   try {
@@ -19,14 +22,15 @@ async function fetchAllTubers() {
 async function generateQRCodes() {
   const tubers = await fetchAllTubers();
 
-  const qrDir = path.join(__dirname,'qr_codes');
+  const qrDir = path.join(__dirname, 'qr_codes');
   if (!fs.existsSync(qrDir)) {
     fs.mkdirSync(qrDir);
   }
 
   for (const tuber of tubers) {
     const url = `${BASE_URL}tuber/${tuber._id}`;
-    const outputFile = path.join(qrDir, `${tuber.name}_${tuber._id}.png`);
+    const safeName = tuber.name?.replace(/[\/\\:*?"<>|]/g, '_') || 'unknown';
+    const outputFile = path.join(qrDir, `${safeName}_${tuber._id}.png`);
 
     try {
       await QRCode.toFile(outputFile, url, {
@@ -37,9 +41,9 @@ async function generateQRCodes() {
         margin: 2,
         width: 300,
       });
-      console.log(`QR code saved: ${outputFile}`);
+      console.log(`✅ QR code saved: ${outputFile}`);
     } catch (err) {
-      console.error(`Error generating QR for ${tuber._id}:`, err.message);
+      console.error(`❌ Error generating QR for ${tuber._id}:`, err.message);
     }
   }
 }

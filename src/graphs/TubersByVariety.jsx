@@ -16,10 +16,10 @@ const TubersByVariety = ({ inventory }) => {
             <div>
                 <h1>Tubers By Variety</h1>
                 <div>
-                    <BarChart width={600} height={300} data={inventory}>
+                    <BarChart width={600} height={300} data={inventory} barCategoryGap={40} barGap={5}>
                         <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="name" />
-                        <YAxis />
+                        <YAxis allowDecimals={false} />
                         <Tooltip />
                         <Bar dataKey="number_of_tubers" fill="#82ca9d" />
                     </BarChart >
