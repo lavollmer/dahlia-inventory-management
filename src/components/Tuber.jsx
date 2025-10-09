@@ -27,6 +27,7 @@ const Tuber = () => {
         setData(null);
       } else {
         setData(response.data)
+        console.log(response.data)
       }
     } catch (err) {
       console.error("There was an error fetching data:", err)
@@ -36,19 +37,25 @@ const Tuber = () => {
     }
   }
 
-  const fetchTuberList = async () => {
-    setLoadingList(true);
-    try {
-      const response = await axios.get(`${apiUrl}/inventory`);
-      console.log("Tuber list response:", response.data);
-      setTuberList(response.data || []);
-    } catch (err) {
-      console.error("Error fetching tuber list:", err);
+ const fetchTuberList = async () => {
+  setLoadingList(true);
+  try {
+    console.log("Fetching tuber list from URL:", `${apiUrl}/inventory`);
+    const response = await axios.get(`${apiUrl}/inventory`);
+    console.log("Full response:", response);
+    if (Array.isArray(response.data)) {
+      setTuberList(response.data);
+    } else {
+      console.error("Unexpected response data:", response.data);
       setTuberList([]);
-    } finally {
-      setLoadingList(false);
     }
+  } catch (err) {
+    console.error("Error fetching tuber list:", err);
+    setTuberList([]);
+  } finally {
+    setLoadingList(false);
   }
+}
 
   useEffect(() => {
     if (id) {
