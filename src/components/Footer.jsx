@@ -6,11 +6,11 @@ const Footer = () => {
       <p>Created by Laura Dev · 2025 &nbsp;|&nbsp;
         <button>
           <a
-            href="https://github.com/lavollmer"
+            href="https://lauradeveloper.com/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            View on GitHub
+            Laura Dev Portfolio
           </a>
         </button>
       </p>
