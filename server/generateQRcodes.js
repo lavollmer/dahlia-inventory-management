@@ -6,12 +6,12 @@ const path = require('path');
 // Netlify
 const BASE_URL = 'https://dahlia-petal-ledger.netlify.app/';
 
-// Heroku backend
-const API_URL = 'https://dahlia-petal-ledger.herokuapp.com/inventory';
+// backend
+const API_URL = 'https://dahlia-petal-ledger.onrender.com';
 
 async function fetchAllTubers() {
   try {
-    const res = await axios.get(API_URL);
+    const res = await axios.get(`${API_URL}/tubers`);
     return res.data; 
   } catch (err) {
     console.error("Failed to fetch tubers:", err.message);
