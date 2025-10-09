@@ -22,7 +22,7 @@ const Tuber = () => {
   const fetchData = async () => {
     try {
       const response = await axios.get(`${apiUrl}/inventory/${id}`);
-
+      console.log("Single tuber response", response.data);
       if (!response.data || Object.keys(response.data).length === 0) {
         setData(null);
       } else {
@@ -40,6 +40,7 @@ const Tuber = () => {
     setLoadingList(true);
     try {
       const response = await axios.get(`${apiUrl}/inventory`);
+      console.log("Tuber list response:", response.data);
       setTuberList(response.data || []);
     } catch (err) {
       console.error("Error fetching tuber list:", err);
@@ -51,7 +52,7 @@ const Tuber = () => {
 
   useEffect(() => {
     if (id) {
-      fetchData(id);
+      fetchData();
     } else {
       fetchTuberList();
       setData(null);
@@ -62,11 +63,11 @@ const Tuber = () => {
   const handleSelectChange = (e) => {
     const selectedId = e.target.value;
     if (selectedId) {
-      navigate(`/tuber/${selectedId}`); 
+      navigate(`/tuber/${selectedId}`);
     }
   }
 
- return (
+  return (
     <div>
       <Header />
       <div className='individual-tuber'>
