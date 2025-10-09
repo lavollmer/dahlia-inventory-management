@@ -2,22 +2,26 @@ import Header from './Header'
 import Footer from './Footer'
 import axios from 'axios';
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 
 const Tuber = () => {
   // get the id from the url
   const { id } = useParams();
 
-  const API_BASE_URL = import.meta.env.VITE_API_BASE_URL;
+  const navigate = useNavigate();
+
+  const apiUrl = import.meta.env.VITE_API_URL;
 
   // useState values
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [tuberList, setTuberList] = useState([]);
+  const [loadingList, setLoadingList] = useState(false);
 
   const fetchData = async () => {
     try {
-      const response = await axios.get(`https://dahlia-inventory-management.onrender.com/inventory/${id}`);
+      const response = await axios.get(`${apiUrl}/inventory/${id}`);
 
       if (!response.data || Object.keys(response.data).length === 0) {
         setData(null);
@@ -26,48 +30,90 @@ const Tuber = () => {
       }
     } catch (err) {
       console.error("There was an error fetching data:", err)
+      setData(null);
     } finally {
       setLoading(false);
     }
   }
 
+  const fetchTuberList = async () => {
+    setLoadingList(true);
+    try {
+      const response = await axios.get(`${apiUrl}/inventory`);
+      setTuberList(response.data || []);
+    } catch (err) {
+      console.error("Error fetching tuber list:", err);
+      setTuberList([]);
+    } finally {
+      setLoadingList(false);
+    }
+  }
+
   useEffect(() => {
-    if (id) fetchData();
+    if (id) {
+      fetchData(id);
+    } else {
+      fetchTuberList();
+      setData(null);
+      setLoading(false);
+    }
   }, [id]);
 
-  return (
+  const handleSelectChange = (e) => {
+    const selectedId = e.target.value;
+    if (selectedId) {
+      navigate(`/tuber/${selectedId}`); 
+    }
+  }
+
+ return (
     <div>
       <Header />
       <div className='individual-tuber'>
-        <div>
-          <h1>Individual Tuber Details</h1>
-        </div>
+        <h1>Individual Tuber Details</h1>
+
+        {!id && (
+          <div className="tuber-selector">
+            <label htmlFor="tuber-select">Select a tuber:</label>
+            {loadingList ? (
+              <p>Loading tubers...</p>
+            ) : (
+              <select id="tuber-select" onChange={handleSelectChange} defaultValue="">
+                <option value="" disabled>Select tuber...</option>
+                {tuberList.map(tuber => (
+                  <option key={tuber._id} value={tuber._id}>
+                    {tuber.name} {tuber.variety ? `(${tuber.variety})` : ''}
+                  </option>
+                ))}
+              </select>
+            )}
+          </div>
+        )}
+
         {loading ? (
           <div className='loading'>
             <p>Loading ...</p>
           </div>
         ) : data ? (
           <div className='id-data'>
-            <div> {data._id}</div>
-            <div> {data.name}</div>
-            <div> {data.variety} </div>
-            <div> {data.color} </div>
-            <div> {data.bloom_size} </div>
-            <div> {data.status} </div>
-            <div> {data.container_id} </div>
-            <div> {data.storage} </div>
-            <div> {data.purchase_source} </div>
-            <div> {data.purchase_year} </div>
-            <div> {data.number_of_tubers} </div>
-            <div> {data.condition} </div>
+            <div><strong>ID:</strong> {data._id}</div>
+            <div><strong>Name:</strong> {data.name}</div>
+            <div><strong>Variety:</strong> {data.variety}</div>
+            <div><strong>Color:</strong> {data.color}</div>
+            <div><strong>Bloom Size:</strong> {data.bloom_size}</div>
+            <div><strong>Status:</strong> {data.status}</div>
+            <div><strong>Container ID:</strong> {data.container_id}</div>
+            <div><strong>Storage:</strong> {data.storage}</div>
+            <div><strong>Purchase Source:</strong> {data.purchase_source}</div>
+            <div><strong>Purchase Year:</strong> {data.purchase_year}</div>
+            <div><strong>Number of Tubers:</strong> {data.number_of_tubers}</div>
+            <div><strong>Condition:</strong> {data.condition}</div>
           </div>
-        ) : (
+        ) : id ? (
           <p>No data found for this tuber.</p>
-        )}
+        ) : null}
       </div>
       <Footer />
     </div>
   );
 };
-
-export default Tuber
