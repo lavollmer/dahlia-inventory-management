@@ -10,8 +10,8 @@ const Tuber = () => {
   const { id } = useParams();
 
   const navigate = useNavigate();
-  console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
   const apiUrl = import.meta.env.VITE_API_URL;
+   console.log("VITE_API_URL:", import.meta.env.VITE_API_URL);
 
   // useState values
   const [data, setData] = useState(null);

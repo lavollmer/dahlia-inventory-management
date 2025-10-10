@@ -50,7 +50,7 @@ const Database = () => {
         condition,
       };
 
-      await axios.put(`http://localhost:5000/inventory/${selectedData._id}`, updatedData);
+      await axios.put(`https://dahlia-petal-ledger.onrender.com/inventory/${selectedData._id}`, updatedData);
       alert("Item updated successfully!");
 
       setIsOpen(false);
@@ -71,7 +71,7 @@ const Database = () => {
     if (!confirmed) return;
 
     try {
-      await axios.delete(`http://localhost:5000/inventory/${id}`);
+      await axios.delete(`https://dahlia-petal-ledger.onrender.com/inventory/${id}`);
       alert('Item deleted successfully!');
       await fetchData();
     } catch (err) {
@@ -83,7 +83,7 @@ const Database = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/inventory');
+      const response = await axios.get('https://dahlia-petal-ledger.onrender.com/inventory');
       console.log("Fetched data:", response.data)
       console.trace();
       setData(response.data)
@@ -102,7 +102,7 @@ const Database = () => {
     console.log('Fetching inventory with ID:', id);
 
     try {
-      const response = await axios.get(`http://localhost:5000/inventory/${id}`);
+      const response = await axios.get(`https://dahlia-petal-ledger.onrender.com/inventory/${id}`);
       console.log("Fetched data:", response.data)
       setSelectedData(response.data)
     } catch (err) {
