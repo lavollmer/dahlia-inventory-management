@@ -16,36 +16,34 @@ router.get('/', async (req, res) => {
 
 // GET route with id
 router.get('/:id', async (req, res) => {
-    // extracts the id from url
-    const { id } = req.params;
+  const { id } = req.params;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        return res.status(400).json({ message: 'Invalid ID format' })
-    }
+  if (!mongoose.Types.ObjectId.isValid(id)) {
+    return res.status(400).json({ message: 'Invalid ID format' });
+  }
 
-    const item = await InventoryItem.findById(id);
+  const item = await InventoryItem.findById(id);
 
-    if (!item) {
-        return res.status(404).json({ message: 'Item not found' });
-    }
+  if (!item) {
+    return res.status(404).json({ message: 'Item not found' });
+  }
 
-    res.json(item);
+  res.json(item);
 });
 
 //SEARCH
 router.get('/search', async (req, res) => {
-    try {
-        const { query } = req.query
-        const inventory = await InventoryItem.find({
-            name: { $regex: query, $options: 'i' }
-        });
-        res.json(inventory)
-    } catch (err) {
-        console.error(err);
-        res.status(500).send('Server Error')
-    }
-})
-
+  try {
+    const { query } = req.query;
+    const inventory = await InventoryItem.find({
+      name: { $regex: query, $options: 'i' }
+    });
+    res.json(inventory);
+  } catch (err) {
+    console.error(err);
+    res.status(500).send('Server Error');
+  }
+});
 // DELETE route
 router.delete('/:id', async (req, res) => {
     try {
