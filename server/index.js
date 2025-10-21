@@ -12,13 +12,6 @@ const PORT = process.env.PORT || 5000;
 
 app.use(cors());
 
-
-// After your cors middleware:
-app.options('/*', (req, res) => {
-  res.sendStatus(204);
-});
-
-
 // Middleware
 app.use(express.json());
 
