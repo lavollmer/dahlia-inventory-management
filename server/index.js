@@ -14,7 +14,7 @@ app.use(cors());
 
 
 // After your cors middleware:
-app.options('*', (req, res) => {
+app.options('/*', (req, res) => {
   res.sendStatus(204);
 });
 
@@ -33,7 +33,6 @@ mongoose.connect(process.env.MONGO_URI)
 
 // GET endpoint
 app.get('/inventory', (req, res) => {
-    res.send('Hello!')
     res.json({ message: 'Inventory list here' })
 });
 
