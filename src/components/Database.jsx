@@ -83,7 +83,7 @@ const Database = () => {
 
   const fetchData = async () => {
     try {
-      const response = await axios.get('https://dahlia-petal-ledger.onrender.com/inventory');
+      const response = await axios.get('https://dahlia-petal-ledger.onrender.com/inventory/');
       console.log("Fetched data:", response.data)
       console.trace();
       setData(response.data)
