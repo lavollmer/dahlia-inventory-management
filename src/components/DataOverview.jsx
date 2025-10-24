@@ -10,7 +10,7 @@ const DataOverview = () => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
-    axios.get('https://dahlia-petal-ledger.onrender.com/inventory/')
+    axios.get('https://dahlia-petal-ledger.onrender.com/inventory')
       .then(response => setData(response.data))
       .catch(error => console.error("Error fetching data:", error))
   }, []);

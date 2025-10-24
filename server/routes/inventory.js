@@ -44,6 +44,7 @@ router.get('/search', async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
 // DELETE route
 router.delete('/:id', async (req, res) => {
     try {

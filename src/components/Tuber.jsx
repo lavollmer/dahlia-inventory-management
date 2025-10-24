@@ -41,7 +41,7 @@ const Tuber = () => {
   setLoadingList(true);
   try {
     console.log("Fetching tuber list from URL:", `${apiUrl}/inventory`);
-    const response = await axios.get(`${apiUrl}/inventory/`);
+    const response = await axios.get(`${apiUrl}/inventory`);
     console.log("Full response:", response);
     if (Array.isArray(response.data)) {
       setTuberList(response.data);
