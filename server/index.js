@@ -11,7 +11,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(cors({
-   origin: 'https://dahlia-petal-ledger.netlify.app'
+  origin: "https://dahlia-petal-ledger.netlify.app", 
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
 }));
 
 // Middleware

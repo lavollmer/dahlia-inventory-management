@@ -4,7 +4,7 @@ const InventoryItem = require('../models/InventoryItem')
 const mongoose = require('mongoose')
 
 // GET route
-router.get('/inventory', async (req, res) => {
+router.get('/', async (req, res) => {
     try {
         const inventory = await InventoryItem.find();
         res.json(inventory);
@@ -15,7 +15,7 @@ router.get('/inventory', async (req, res) => {
 });
 
 // GET route with id
-router.get('/inventory/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   const { id } = req.params;
 
   if (!mongoose.Types.ObjectId.isValid(id)) {
@@ -32,7 +32,7 @@ router.get('/inventory/:id', async (req, res) => {
 });
 
 //SEARCH
-router.get('/inventory/search', async (req, res) => {
+router.get('/search', async (req, res) => {
   try {
     const { query } = req.query;
     const inventory = await InventoryItem.find({
@@ -45,7 +45,7 @@ router.get('/inventory/search', async (req, res) => {
   }
 });
 // DELETE route
-router.delete('/inventory/:id', async (req, res) => {
+router.delete('/:id', async (req, res) => {
     try {
         const deletedItem = await InventoryItem.findByIdAndDelete(req.params.id);
         if (!deletedItem) {
@@ -58,7 +58,7 @@ router.delete('/inventory/:id', async (req, res) => {
 })
 
 // EDIT route
-router.put('/inventory/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
     try {
         console.log('Fetching inventory with ID:', req.params.id);
         const editedItem = await InventoryItem.findByIdAndUpdate(req.params.id, req.body, { new: true });
@@ -73,7 +73,7 @@ router.put('/inventory/:id', async (req, res) => {
 })
 
 // POST route
-router.post('/inventory', async (req, res) => {
+router.post('/', async (req, res) => {
     try {
         const { name, color, bloom_size, variety, status, container_id, storage, purchase_source, purchase_year, number_of_tubers, condition } = req.body;
 
