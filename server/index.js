@@ -26,33 +26,28 @@ const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization"],
 };
 
-// Enable CORS globally
+// Middleware
 app.use(cors(corsOptions));
-
-// Handle preflight requests
-app.options("*", cors(corsOptions));
-
-// Middleware to parse JSON
 app.use(express.json());
 
 // Routes
 const inventoryRoutes = require('./routes/inventory');
 app.use('/inventory', inventoryRoutes);
 
-// Connect to MongoDB
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log('MongoDB Atlas connected!'))
-  .catch(err => console.error('Mongoose Error:', err));
-
-// Basic GET endpoint
+// Root endpoint
 app.get('/', (req, res) => {
   res.json({ message: 'Inventory list here' });
 });
 
-// Catch-all 404 (must be last)
+// 404 catch-all
 app.use((req, res) => {
   res.status(404).json({ error: "Not found" });
 });
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI)
+  .then(() => console.log('MongoDB Atlas connected!'))
+  .catch(err => console.error('Mongoose Error:', err));
 
 // Start server
 app.listen(PORT, () => {
