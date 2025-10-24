@@ -51,6 +51,11 @@ app.get('/', (req, res) => {
     res.json({ message: 'Inventory list here' })
 });
 
+// Catch-all 404
+app.use("/*", (req, res) => {
+  res.status(404).json({ error: "Not found" });
+});
+
 // Listening on a PORT
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`)
