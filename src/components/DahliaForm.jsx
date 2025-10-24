@@ -58,12 +58,12 @@ function DahliaForm() {
 
     try {
       if (isEditing) {
-        await axios.put(`http://localhost:5000/inventory/${editingId}`, formToSend);
+        await axios.put(`https://dahlia-petal-ledger.onrender.com/inventory/${editingId}`, formToSend);
         alert('Item updated successfully!');
         setIsEditing(false);
         setEditingId(null);
       } else {
-        const res = await axios.post('http://localhost:5000/inventory/', formToSend);
+        const res = await axios.post('https://dahlia-petal-ledger.onrender.com/inventory/', formToSend);
         console.log('New item added:', res.data);
         alert('New item added!');
       }
